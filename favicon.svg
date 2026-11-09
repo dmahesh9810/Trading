@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="cyanLine" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Card -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="#f59e0b" stroke-width="2.5"/>
+  
+  <!-- Subtle Grid lines -->
+  <line x1="8" y1="48" x2="56" y2="48" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8" y1="32" x2="56" y2="32" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8" y1="16" x2="56" y2="16" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Cyan Trend line -->
+  <path d="M12 46 L24 38 L36 30 L52 14" fill="none" stroke="url(#cyanLine)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  <circle cx="52" cy="14" r="3.2" fill="#38bdf8"/>
+
+  <!-- Left Candle (Green Bullish) -->
+  <line x1="22" y1="24" x2="22" y2="48" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+  <rect x="18" y="29" width="8" height="14" rx="2" fill="url(#greenGrad)" stroke="#22c55e" stroke-width="0.8"/>
+
+  <!-- Center-Right Candle (Gold Bullish Breakout) -->
+  <line x1="38" y1="12" x2="38" y2="42" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+  <rect x="33" y="18" width="10" height="19" rx="2.5" fill="url(#goldGrad)" stroke="#fbbf24" stroke-width="1"/>
+</svg>
