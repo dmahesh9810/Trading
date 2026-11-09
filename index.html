@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex & Gold Trading Complete Psychology Guide & 48-Step Mastery Checklist - By D.M. Mahesh Dissanayaka</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-dark: #090e1a;
+            --bg-card: #131c2e;
+            --bg-card-alt: #1a263e;
+            --border: #2e3f5c;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --green: #16a34a;
+            --green-light: #22c55e;
+            --red: #dc2626;
+            --red-light: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Sinhala', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 20px 14px 70px;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 18px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background: rgba(245, 158, 11, 0.16);
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .autosave-pill {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.45);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 0.94rem;
+        }
+
+        .student-bar {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: #090e1a;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        /* Main View Switcher (Psychology Handbook vs Practical Checklist) */
+        .main-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .nav-card-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            color: #e2e8f0;
+            padding: 14px 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .nav-card-btn strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+
+        .nav-card-btn span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .nav-card-btn.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(2, 132, 199, 0.2));
+            border-color: var(--gold-light);
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.25);
+        }
+
+        /* Stats & Action Bar */
+        .stats-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .stat-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .stat-pill {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            background: #090e1a;
+            border: 1px solid var(--border);
+        }
+
+        .stat-pill.done { color: #4ade80; border-color: rgba(34, 197, 94, 0.45); }
+        .stat-pill.help { color: #f87171; border-color: rgba(239, 68, 68, 0.45); }
+        .stat-pill.rem { color: #38bdf8; border-color: rgba(56, 189, 248, 0.45); }
+
+        .action-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-pdf { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; }
+        .btn-wa { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; }
+        .btn-reset { background: #334155; color: #cbd5e1; }
+
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: #090e1a;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #22c55e, #38bdf8);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Help Summary Box */
+        .help-summary-box {
+            display: none;
+            background: rgba(220, 38, 38, 0.14);
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .help-summary-box.visible { display: block; }
+        .help-summary-box h3 { color: #f87171; font-size: 1rem; margin-bottom: 8px; }
+        .help-summary-box ul { padding-left: 20px; font-size: 0.88rem; color: #fee2e2; }
+
+        /* SECTION 1: PSYCHOLOGY & REALITY HANDBOOK */
+        .psych-section-header {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(220, 38, 38, 0.15));
+            border: 2px solid var(--gold);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 18px;
+        }
+
+        .psych-section-header h2 {
+            color: var(--gold-light);
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+        }
+
+        .psych-section-header p {
+            color: #e2e8f0;
+            font-size: 0.93rem;
+        }
+
+        .psych-chapter {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 24px;
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+
+        .psych-chapter.state-done {
+            background: rgba(22, 163, 74, 0.13) !important;
+            border-left: 6px solid #22c55e;
+        }
+
+        .psych-chapter.state-help {
+            background: rgba(220, 38, 38, 0.15) !important;
+            border-left: 6px solid #ef4444;
+        }
+
+        .chapter-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-tag {
+            background: rgba(245, 158, 11, 0.18);
+            color: var(--gold-light);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .chapter-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .chapter-body {
+            font-size: 0.93rem;
+            color: #e2e8f0;
+            margin-bottom: 14px;
+        }
+
+        .chapter-body p {
+            margin-bottom: 10px;
+        }
+
+        .chapter-body ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-body li {
+            margin-bottom: 6px;
+        }
+
+        .chapter-highlight {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #bae6fd;
+            margin-top: 10px;
+        }
+
+        .chapter-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+        }
+
+        /* Filter Tabs for Practical Checklist */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: #0284c7;
+            color: #fff;
+            border-color: #38bdf8;
+        }
+
+        /* Module Cards & Rows */
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 22px;
+            overflow: hidden;
+        }
+
+        .module-header {
+            background: linear-gradient(90deg, #1e293b, #0f172a);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .module-title { font-size: 1.1rem; font-weight: 800; color: var(--accent); }
+        .module-sub { font-size: 0.84rem; color: var(--text-muted); margin-top: 2px; }
+        .module-badge {
+            background: #090e1a;
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #cbd5e1;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+        }
+
+        .item-row:last-child { border-bottom: none; }
+
+        .item-row.state-done {
+            background: rgba(22, 163, 74, 0.16) !important;
+            border-left: 5px solid #22c55e;
+        }
+
+        .item-row.state-help {
+            background: rgba(220, 38, 38, 0.18) !important;
+            border-left: 5px solid #ef4444;
+        }
+
+        .item-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .step-num {
+            background: #090e1a;
+            border: 1px solid var(--border);
+            color: #38bdf8;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 9px;
+            border-radius: 6px;
+            min-width: 48px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .item-content h4 {
+            font-size: 0.97rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .item-content p {
+            font-size: 0.87rem;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+        }
+
+        .yt-tag {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.76rem;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: none;
+            font-size: 0.74rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+        }
+
+        .state-done .status-badge.badge-done {
+            display: inline-block;
+            background: #16a34a;
+            color: #fff;
+        }
+
+        .state-help .status-badge.badge-help {
+            display: inline-block;
+            background: #dc2626;
+            color: #fff;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .chk-btn {
+            border: 1px solid var(--border);
+            background: #090e1a;
+            color: #cbd5e1;
+            padding: 8px 13px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            min-width: 122px;
+            text-align: center;
+        }
+
+        .chk-btn.btn-done.active {
+            background: #16a34a !important;
+            color: #ffffff !important;
+            border-color: #4ade80 !important;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+        }
+
+        .chk-btn.btn-help.active {
+            background: #dc2626 !important;
+            color: #ffffff !important;
+            border-color: #f87171 !important;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.45);
+        }
+
+        @media (max-width: 680px) {
+            .item-row, .chapter-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-actions { width: 100%; }
+            .chk-btn { flex: 1; }
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+            }
+            .main-nav, .action-btns, .filter-tabs {
+                display: none !important;
+            }
+            .hero, .stats-bar, .module-card, .psych-chapter, .psych-section-header {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                border-color: #94a3b8 !important;
+                box-shadow: none !important;
+            }
+            .hero h1, .module-title, .item-content h4, .chapter-title, .psych-section-header h2 {
+                color: #0f172a !important;
+            }
+            .hero p, .module-sub, .item-content p, .chapter-body, .psych-section-header p {
+                color: #1e293b !important;
+            }
+            .chapter-highlight {
+                background: #f1f5f9 !important;
+                color: #0f172a !important;
+                border-left: 4px solid #0284c7 !important;
+            }
+            .input-group input {
+                background: #f8fafc !important;
+                color: #0f172a !important;
+                border-color: #cbd5e1 !important;
+            }
+            .item-row, .psych-chapter {
+                page-break-inside: avoid;
+                border-bottom: 1px solid #cbd5e1 !important;
+            }
+            .item-row.state-done, .psych-chapter.state-done {
+                background-color: #dcfce7 !important;
+                border-left: 6px solid #16a34a !important;
+            }
+            .item-row.state-help, .psych-chapter.state-help {
+                background-color: #fee2e2 !important;
+                border-left: 6px solid #dc2626 !important;
+            }
+            .chk-btn {
+                background: #f1f5f9 !important;
+                color: #94a3b8 !important;
+                border-color: #cbd5e1 !important;
+                opacity: 0.35;
+            }
+            .chk-btn.btn-done.active {
+                background: #16a34a !important;
+                color: #ffffff !important;
+                border: 2px solid #14532d !important;
+                opacity: 1 !important;
+            }
+            .chk-btn.btn-help.active {
+                background: #dc2626 !important;
+                color: #ffffff !important;
+                border: 2px solid #7f1d1d !important;
+                opacity: 1 !important;
+            }
+            .help-summary-box.visible {
+                background: #fef2f2 !important;
+                border: 2px solid #dc2626 !important;
+            }
+            .help-summary-box h3, .help-summary-box ul {
+                color: #991b1b !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-top">
+            <span class="badge">🎯 COMPLETE TRADING PSYCHOLOGY HANDBOOK & 48-STEP CHECKLIST</span>
+            <span class="autosave-pill" id="autosaveStatus">💾 Auto-Save Active (ඔබ ලකුණු කරන සියල්ල ස්වයංක්‍රීයව Save වේ)</span>
+        </div>
+        <h1>Forex (EURUSD) & Gold (XAUUSD) — මනෝවිද්‍යාව, විනය සහ ප්‍රායෝගික පුහුණු මාර්ගෝපදේශය</h1>
+        <p>Trading වලින් සාර්ථක වීමට Strategy එක (20%) මෙන්ම <strong>Trading Psychology සහ විනය (80%)</strong> අත්‍යවශ්‍ය වේ. මුලින්ම <strong>1 වන කොටසේ ඇති මනෝවිද්‍යා පාඩම් 8</strong> හොඳින් කියවා තේරුම් ගෙන ලකුණු කරන්න. ඉන්පසු <strong>2 වන කොටසේ ඇති ප්‍රායෝගික පියවර 40</strong> පිළිවෙළින් ඉගෙන ගන්න.</p>
+
+        <div class="student-bar">
+            <div class="input-group">
+                <label>ශිෂ්‍යයාගේ නම (Student Full Name)</label>
+                <input type="text" id="studentName" placeholder="ඔබේ සම්පූර්ණ නම (Enter your name)" oninput="saveMeta()">
+            </div>
+            <div class="input-group">
+                <label>ශිෂ්‍ය අංකය / Batch (Student ID / Batch)</label>
+                <input type="text" id="studentReg" placeholder="උදා: COT-NVQ5 / UoVT / Batch 02" oninput="saveMeta()">
+            </div>
+            <div class="input-group">
+                <label>ආරම්භ කළ දිනය (Start Date)</label>
+                <input type="text" id="startDate" placeholder="YYYY-MM-DD" oninput="saveMeta()">
+            </div>
+            <div class="input-group">
+                <label>උපදේශක (Mentor)</label>
+                <input type="text" value="D.M. Mahesh Dissanayaka (Lecturer - ICT)" readonly>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN MODE SWITCHER -->
+    <div class="main-nav">
+        <button class="nav-card-btn active" id="navBtnAll" onclick="setMainView('ALL')">
+            <strong>📚 සම්පූර්ණ අත්පොත + Checklist (All 48 Steps)</strong>
+            <span>මනෝවිද්‍යා පාඩම් 8 සහ ප්‍රායෝගික පියවර 40 එකම තැනකින්</span>
+        </button>
+        <button class="nav-card-btn" id="navBtnPsych" onclick="setMainView('PSYCH')">
+            <strong>🧠 1 කොටස: Trading මනෝවිද්‍යාව සහ සැබෑ ඇත්ත (8 Chapters)</strong>
+            <span>Trading වල භයානකකම, මොළය වැඩ කරන හැටි සහ වැරදෙන තැන්</span>
+        </button>
+        <button class="nav-card-btn" id="navBtnTech" onclick="setMainView('TECH')">
+            <strong>📈 2 කොටස: ප්‍රායෝගික පියවර 40ක Checklist එක (Stages 1–6)</strong>
+            <span>Accounts, Candlesticks, Support/Resistance, OB/FVG සහ Gold Strategy</span>
+        </button>
+    </div>
+
+    <!-- PROGRESS & ACTIONS -->
+    <div class="stats-bar">
+        <div style="flex: 1; min-width: 260px;">
+            <div class="stat-pills">
+                <span class="stat-pill">මුළු පියවර: <strong id="totalCount">48</strong></span>
+                <span class="stat-pill done">✅ සම්පූර්ණයි: <strong id="doneCount">0</strong></span>
+                <span class="stat-pill help">❓ පැහැදිලි මදි (Mahesh Sir ගෙන් අහන්න): <strong id="helpCount">0</strong></span>
+                <span class="stat-pill rem">⏳ ඉතිරි: <strong id="remCount">48</strong> (<span id="pctText">0%</span>)</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        <div class="action-btns">
+            <button class="btn btn-pdf" onclick="exportPDF()">🖨️ PDF එකක් ලෙස Save කරන්න</button>
+            <button class="btn btn-wa" onclick="copyWhatsAppSummary()">📲 WhatsApp සාරාංශය Copy කරන්න</button>
+            <button class="btn btn-reset" onclick="resetAll()">🔄 Reset</button>
+        </div>
+    </div>
+
+    <!-- NEED HELP SUMMARY -->
+    <div class="help-summary-box" id="helpSummaryBox">
+        <h3>❓ Mahesh Sir ගෙන් අසා දැනගත යුතු / පැහැදිලි මදි කොටස් ලැයිස්තුව:</h3>
+        <ul id="helpSummaryList"></ul>
+    </div>
+
+    <!-- PART 1: PSYCHOLOGY & REALITY HANDBOOK CONTAINER -->
+    <div id="psychWrapper">
+        <div class="psych-section-header">
+            <h2>🧠 1 වන කොටස: Trading කියන්නේ ඇත්තටම මොකක්ද? අපේ මනස (Psychology) සහ විනය පාලනය කරන හැටි</h2>
+            <p>Chart එකක් දිහා බලන්න කලින් මේ පාඩම් 8 අකුරක් නෑර කියවන්න. ලෝකයේ Trading කරන අයගෙන් 95%ක්ම අසාර්ථක වෙන්නේ Strategy එකක් දන්නේ නැති නිසා නෙවෙයි — තමන්ගේ මනස, කෑදරකම (Greed) සහ බය (Fear) පාලනය කරගන්න බැරි නිසයි!</p>
+        </div>
+        <div id="psychChaptersContainer"></div>
+    </div>
+
+    <!-- PART 2: PRACTICAL CHECKLIST CONTAINER -->
+    <div id="techWrapper">
+        <div class="filter-tabs" id="filterTabs">
+            <button class="tab-btn active" onclick="setFilter('ALL', this)">📚 සියලුම ප්‍රායෝගික අදියර (40 Steps)</button>
+            <button class="tab-btn" onclick="setFilter('S1', this)">Stage 01: Accounts & Tools</button>
+            <button class="tab-btn" onclick="setFilter('S2', this)">Stage 02: Basics & Candlesticks</button>
+            <button class="tab-btn" onclick="setFilter('S3', this)">Stage 03: Timeframes & S/R</button>
+            <button class="tab-btn" onclick="setFilter('S4', this)">Stage 04: OB & FVG (EURUSD)</button>
+            <button class="tab-btn" onclick="setFilter('S5', this)">Stage 05: Clean Traffic (Gold)</button>
+            <button class="tab-btn" onclick="setFilter('S6', this)">Stage 06: Risk & Demo Practicals</button>
+        </div>
+        <div id="modulesContainer"></div>
+    </div>
+</div>
+
+<script>
+const PSYCH_CHAPTERS = [
+    {
+        id: 'P01',
+        tag: 'මනෝවිද්‍යා පාඩම 01',
+        title: 'Trading කියන්නේ ඇත්තටම මොකක්ද? ඇයි 95%ක් දෙනා මේකෙන් සල්ලි නැති කරගන්නේ?',
+        body: `
+            <p>ගොඩක් අය TikTok, YouTube හෝ Facebook වලින් දකින්නේ Trading කියන්නේ "විනාඩි 5න් බටන් එකක් ඔබලා ඩොලර් සිය ගණන් හොයන සල්ලි මැෂිමක්" කියලයි. <strong>ඒක 100%ක්ම බොරුවක්!</strong></p>
+            <ul>
+                <li><strong>ඔබ තරඟ කරන්නේ කා එක්කද?</strong> ඔබ Chart එකක් ඉස්සරහ වාඩි වෙලා Buy හෝ Sell ඔබද්දී, අනිත් පැත්තෙන් ඉන්නේ ලෝකයේ ලොකුම මහ බැංකු (JP Morgan, CitiBank, Goldman Sachs), Hedge Funds සහ තත්පරයෙන් දහසෙන් පංගුවකින් වැඩ කරන Supercomputer Algorithms!</li>
+                <li><strong>ඇයි 95%ක් පරදින්නේ?</strong> සාමාන්‍ය මිනිස්සු (Retail Traders) කිසිම ඉගෙනීමක් හෝ නීතියක් නැතුව, කැසිනෝ එකක ඔට්ටු අල්ලනවා වගේ (Gambling Mindset) හැඟීම් වලට වහල් වෙලා Trade දානවා. බැංකු වල Algorithms හදලා තියෙන්නෙම එහෙම කලබල වෙන අයගේ සල්ලි ටික උරාගන්නයි!</li>
+                <li><strong>එහෙනම් අපි දිනන්නේ කොහොමද?</strong> අපි සූදුකාරයෝ වගේ හැම වෙලේම Trade දාන්නේ නැහැ. අපි <strong>"Sniper" (දඩයක්කාරයෙක්)</strong> කෙනෙක් වගේ මහ බැංකු යන පාර (Order Blocks / FVG / Clean Traffic) දිහා ඉවසීමෙන් බලන් ඉඳලා, බැංකු යන පැත්තටම දවසකට එකම එක ආරක්ෂිත Trade එකක් විතරක් ගන්නවා!</li>
+            </ul>
+        `,
+        highlight: '💡 මතක තියාගන්න: Trading කියන්නේ "ඉක්මනින් පොහොසත් වෙන ලොතරැයියක්" නෙවෙයි. ඒක හරියට ශල්‍යකර්මයක් කරන වෛද්‍යවරයෙක් හෝ ගුවන් නියමුවෙක් වගේ 100%ක් නීති වලට විතරක් වැඩ කරන වෘත්තීය කුසලතාවයක් (High-Income Skill)!'
+    },
+    {
+        id: 'P02',
+        tag: 'මනෝවිද්‍යා පාඩම 02',
+        title: 'Trade එකක් දැම්මම අපේ මොළයට (Dopamine & Amygdala) ඇත්තටම වෙන දේ!',
+        body: `
+            <p>ඔයා Chart එකක් දිහා නිකන් බලන් ඉද්දී ඔයාගේ මොළය හරිම බුද්ධිමත්. හැබැයි ඔයා <strong>Buy හෝ Sell බටන් එක එබුව තත්පරයේ ඉඳන්</strong> ඔයාගේ මොළය ඇතුළේ රසායනික යුද්ධයක් පටන් ගන්නවා:</p>
+            <ul>
+                <li><strong>1. Dopamine (කෑදරකමේ රසායනය - Greed):</strong> ඔයා දාපු Trade එක නිල් පාට වෙලා <code>+$5.00</code>, <code>+$10.00</code> Profit පෙන්නද්දී ඔයාගේ මොළයට <strong>Dopamine</strong> නිදහස් වෙනවා. එතකොට ඔයාගේ මොළය ඔයාට කොඳුරනවා: <em>"මරුනේ! මේක හරිම ලේසියිනේ! තව Trade දෙකක් දාපන්! Lot Size එක 0.01 වෙනුවට 0.10 දාපන්!"</em> කියලා. අන්න එතනදී තමයි මිනිස්සු කෑදර වෙලා දිනපු සල්ලි ඔක්කොම ආපහු නැති කරගන්නේ!</li>
+                <li><strong>2. Amygdala Hijack (බය සහ තරහ - Fear & Anger):</strong> ඔයා දාපු Trade එක රතු පාට වෙලා Stop Loss වැදිලා <code>-$5.00</code> ක් පාඩු වුණු ගමන්, මොළයේ <strong>Amygdala</strong> (අනතුරකදී ක්‍රියාත්මක වන කොටස) ඔයාගේ තර්කානුකූල මොළය (Prefrontal Cortex) අක්‍රිය කරනවා. එතකොට ඔයාට තරහ යනවා: <em>"මට දැන්ම මේ ගිය $5 ආපහු ගන්න ඕනේ!"</em> කියලා කිසිම ප්ලෑන් එකක් නැතුව ආයේ Trade ඔබනවා.</li>
+            </ul>
+        `,
+        highlight: '💡 රහස: හොඳ Trader කෙනෙක් කියන්නේ හැඟීම් දැනෙන්නේ නැති රොබෝ කෙනෙක් නෙවෙයි — තමන්ගේ මොළයට Dopamine (කෑදරකම) හෝ තරහ ආපු ගමන් ඒක අඳුරගෙන, මවුස් එකෙන් අත අහකට ගන්න පුරුදු වුණු කෙනෙක්!'
+    },
+    {
+        id: 'P03',
+        tag: 'මනෝවිද්‍යා පාඩම 03',
+        title: 'ගොඩක් අය කෙළවගන්න මාරාන්තික උගුල් 6 (The 6 Deadly Traps in Trading)',
+        body: `
+            <p>ලංකාවේ සහ ලෝකයේ 95%ක් දෙනා තමන්ගේ Accounts බිංදුවටම නැති කරගන්නේ (Blow කරගන්නේ) මේ වැරදි 6න් එකක් හෝ කිහිපයක් නිසයි:</p>
+            <ul>
+                <li><strong>1. Revenge Trading (පළිගැනීමේ ට්‍රේඩින් - භයානකම සතුරා!):</strong> එක Trade එකක් Stop Loss වැදුණු ගමන්, ඒ පාඩුව එවෙලේම අල්ලන්න හිතාගෙන තරහින් පිට පිට Trades 5–10ක් දාලා විනාඩි 30න් මුළු Account එකම ඉවර කරගැනීම.</li>
+                <li><strong>2. Overtrading (දිනුවට පස්සෙත් නොනැවතී Trade දැමීම):</strong> උදේ ලස්සනට එක Trade එකක් දිනලා <code>+$20</code> ක් හොයාගෙන, ඒකෙන් සෑහීමකට පත් නොවී හවස් වෙනකම් තව Trades දාන්න ගිහින් උදේ දිනපු එකත් පරදින එක.</li>
+                <li><strong>3. FOMO (Fear Of Missing Out - දුවන කෝච්චි වලට පැනීම):</strong> ලොකු කොළ හෝ රතු Candle එකක් වේගයෙන් යනවා දැක්කම, <em>"අයියෝ මට මේක මිස් වෙයි!"</em> කියලා හිතලා කිසිම Confirmation එකක් නැතුව Candle එක මැදදී පනින එක (බොහෝ විට ඔයා පැන්න ගමන්ම Candle එක ආපහු හැරෙනවා!).</li>
+                <li><strong>4. Stop Loss නොදා Trade කිරීම (හෝ Stop Loss එක ඈතට ඇදීම):</strong> පාඩුව පිළිගන්න බැරුව Stop Loss එක අයින් කරගෙන <em>"දැන් හැරෙයි, දැන් හැරෙයි"</em> කියලා බලන් ඉඳලා එකම එක Trade එකකින් මාසයක මහන්සිය වතුරේ යවා ගැනීම.</li>
+                <li><strong>5. Lot Size වැඩි කිරීම (Over-leveraging):</strong> පොඩි Account එකක <code>0.01</code> වෙනුවට ඉක්මනින් සල්ලි හොයන්න <code>0.20</code> හෝ <code>1.00</code> Lot දැමීම.</li>
+                <li><strong>6. Strategy Hopping (සතියෙන් සතිය ක්‍රම මාරු කිරීම):</strong> එක Trade එකක් පැරදුණු ගමන් ඒ Strategy එක අතහැරලා YouTube එකේ තියෙන තවත් අලුත් Indicator එකක් පස්සේ යාම.</li>
+            </ul>
+        `,
+        highlight: '🛑 ඔබටම පොරොන්දු වන්න: "මම කවදාවත් Stop Loss නැතුව Trade දාන්නේ නැහැ, වගේම එක Trade එකක් SL වැදුණොත් එවෙලේම තරහට තව Trade එකක් දාන්නේ (Revenge Trade කරන්නේ) නැහැ!"'
+    },
+    {
+        id: 'P04',
+        tag: 'මනෝවිද්‍යා පාඩම 04',
+        title: 'Binary Options (IQ Option / Quotex) සහ Signal Groups වලින් 100%ක්ම ඈත් විය යුත්තේ ඇයි?',
+        body: `
+            <p>අලුතින් Trading වලට එන තරුණ ළමයි වැඩිපුරම අමාරුවේ වැටෙන තැන් දෙකක් තියෙනවා:</p>
+            <ul>
+                <li><strong>1. Binary Options (IQ Option, Binomo, Quotex, Pocket Option):</strong>
+                    <br>මේවයේ කරන්නේ <em>"ඊළඟ විනාඩිය ඇතුළත මිල උඩ යයිද පහළ යයිද?"</em> කියලා ඔට්ටු අල්ලන එකයි. ඔයා දිනුවොත් ලැබෙන්නේ 80%යි, පැරදුණොත් 100%ක්ම ඉවරයි! ලෝකයේ කිසිම බැංකුවක් හෝ වෘත්තීය ආයෝජකයෙක් Binary Options කරන්නේ නැහැ. ඒවා Broker විසින් හදපු කැසිනෝ සූදු (Rigged Gambling Apps) පමණයි. අපි කරන්නේ සැබෑ ලෝකයේ බැංකු කරන <strong>Spot Forex & Gold (MT5)</strong> පමණයි.</li>
+                <li><strong>2. Telegram VIP Signal Groups & Account Management Scams:</strong>
+                    <br><em>"සල්ලි දාන්න අපි ඩබල් කරලා දෙන්නම්"</em> හෝ <em>"මාසෙට $50ක් දෙන්න Signals දෙන්නම්"</em> කියන 99%ක්ම වංචනිකයෝ. කාගෙවත් Signal බලලා Trade දාන කෙනෙක්ට කවදාවත් තනියම ජීවත් වෙන්න පුළුවන් කුසලතාවයක් (Skill එකක්) ලැබෙන්නේ නැහැ.</li>
+            </ul>
+        `,
+        highlight: '💡 ඔයාගේ ඉලක්කය විය යුත්තේ මාළු කෑල්ලක් කාගෙන් හරි ඉල්ලගන්න එක නෙවෙයි — ජීවිත කාලයටම තනියම මාළු අල්ලන්න පුළුවන් දැල (Skill එක) හදාගන්න එකයි!'
+    },
+    {
+        id: 'P05',
+        tag: 'මනෝවිද්‍යා පාඩම 05',
+        title: 'පාඩුවක් (Stop Loss) කියන්නේ පරාජයක් නෙවෙයි — "ව්‍යාපාරික වියදමක්" (Business Expense)!',
+        body: `
+            <p>අලුත් අය හිතන්නේ හොඳ Trader කෙනෙක් වුණාම දාන හැම Trade එකක්ම (100%ක්ම) දිනන්න ඕනේ කියලයි. <strong>ලෝකයේ හොඳම Traders ලාගේ පවා Win Rate එක තියෙන්නේ 55% – 70% අතරේ!</strong></p>
+            <ul>
+                <li>හිතන්න ඔයා Trades 10ක් ගන්නවා. ඒකෙන් <strong>Trades 4ක් පරදිනවා (Stop Loss වදිනවා)</strong>, හැබැයි <strong>Trades 6ක් දිනනවා (Take Profit වදිනවා)</strong>.</li>
+                <li>ඔයා පරදින එක Trade එකකදී පාඩු වෙන්නේ <code>-$5.00</code> නම්, පරදින Trades 4ටම යන්නේ <code>-$20.00</code> යි.</li>
+                <li>හැබැයි ඔයා දිනන එක Trade එකකදී <code>+$15.00</code> ක් (1:3 Risk-to-Reward) හොයනවා නම්, දිනන Trades 6න් ඔයාට <code>+$90.00</code> ක් ලැබෙනවා!</li>
+                <li>එතකොට Trades 4ක් පැරදිලත් ඔයාගේ ශුද්ධ ලාභය <strong><code>+$70.00</code> ක්!</strong></li>
+            </ul>
+        `,
+        highlight: '💡 ඒ නිසා නීති වලට ගත්ත Trade එකක Stop Loss වැදුණම දුක් වෙන්නවත් තරහ ගන්නවත් එපා! කඩයක් කරන කෙනෙක් ලයිට් බිල ගෙවනවා වගේ, Stop Loss කියන්නේ Trading ව්‍යාපාරයේ පොඩි වියදමක් විතරයි.'
+    },
+    {
+        id: 'P06',
+        tag: 'මනෝවිද්‍යා පාඩම 06',
+        title: 'මනස 100%ක් පාලනය කරන "Sniper විනය නීති 5" (Mahesh Sir භාවිතා කරන රන් නීති)',
+        body: `
+            <p>ඔයාගේ මනස කවදාවත් කලබල නොවී තියාගන්න අපි හැමදාම පාවිච්චි කරන නීති 5 මේකයි:</p>
+            <ul>
+                <li><strong>1. "One & Done" Rule (දවසකට එක පැහැදිලි Trade එකයි!):</strong> දවසට පැයක් Chart එක බලලා, අපේ නීති ඔක්කොම ගැලපෙන එකම එක සුපිරි Setup එකක් විතරක් ගන්නවා. ඒක TP වැදුණත්, SL වැදුණත් එදාට Laptop එක වහනවා!</li>
+                <li><strong>2. "No-Trade Box" ඉවසීම:</strong> Price එක Support සහ Resistance ඉරි දෙකක් මැද හිරවෙලා තියෙද්දී කිසිම දෙයක් කරන්නේ නැතුව අත් දෙක බැඳගෙන බලන් ඉන්න පුරුදු වීම. (Trading වලින් 90%ක්ම තියෙන්නේ ඉවසීමෙන් බලා සිටීමයි!).</li>
+                <li><strong>3. Candle Body Close වෙනකම් ඉවසීම:</strong> විනාඩි 30 (30m) Candle එක ඉවර වෙන්න කලින් කවදාවත් කලබල වෙලා මැදදී පනින්නේ නැහැ.</li>
+                <li><strong>4. Break-Even (Risk-Free) පුරුද්ද:</strong> Trade එක අපේ පැත්තට Pips 60–80ක් ගිය ගමන් Stop Loss එක Entry එක ගාවට ගෙනත් පාඩු වීමේ අවදානම <code>0%</code> කරගන්නවා. එතකොට හිතට කිසිම බරක් නැහැ!</li>
+                <li><strong>5. පොඩිම Lot Size එකෙන් (0.01) පටන් ගැනීම:</strong> හිත ගැස්සෙන්නේ නැති ගාණක් (උදා: <code>$4 - $5</code> ක්) විතරක් Risk කරන නිසා මොළය හැමවෙලේම සන්සුන්ව තියෙනවා.</li>
+            </ul>
+        `,
+        highlight: '👑 විනය (Discipline) කියන්නේ කවුරුත් බලන් නැති වෙලාවටත් තමන් හදාගත්ත නීති ටික අකුරටම පිළිපදින එකයි!'
+    },
+    {
+        id: 'P07',
+        tag: 'මනෝවිද්‍යා පාඩම 07',
+        title: 'ජීවිතයේ විනය = Trading විනය (Life Discipline & Daily Routine)',
+        body: `
+            <p>ජීවිතයේ පිළිවෙළක් නැති කෙනෙක්ට කවදාවත් Chart එකක් ඉස්සරහ විනයක් තියාගන්න බැහැ. මොකද ඔයාගේ මොළයේ <strong>Prefrontal Cortex (තීරණ ගන්නා කොටස)</strong> ශක්තිමත් වෙන්නේ ඔයාගේ දින චර්යාවෙන්:</p>
+            <ul>
+                <li><strong>1. අධ්‍යාපනය සහ වෘත්තිය අංක 1:</strong> ඔබේ පාසල් / NVQ / විශ්වවිද්‍යාල අධ්‍යාපන වැඩ, රැකියා විභාග සහ පවුලේ වගකීම් කවදාවත් Trading නිසා අතපසු කරගන්න එපා.</li>
+                <li><strong>2. නිදි මරාගෙන Chart බලන්න එපා:</strong> නිදිමතේ හෝ මහන්සි වෙලා ඉද්දී මොළයේ ඉවසීම අඩුයි. නියමිත වෙලාවකට විතරක් (උදා: දවල් <code>12:00 PM – 2:00 PM</code> හෝ හවස <code>6:00 PM – 8:00 PM</code>) Chart එක බලන්න.</li>
+                <li><strong>3. ෆෝන් එකට ඇබ්බැහි නොවීම (Dopamine Control):</strong> පැය ගණන් තේරුමක් නැති Reels/Shorts බලලා මොළයේ ඉවසීම නැති කරගත්තම, Chart එක ඉස්සරහ විනාඩි 30ක් Candle එකක් Close වෙනකම් ඉවසන්න බැරි වෙනවා!</li>
+            </ul>
+        `,
+        highlight: '💡 සන්සුන් මනසක් තියෙන කෙනෙක්ට විතරයි Chart එකේ තියෙන පිරිසිදු අවස්ථා (Clean Setups) පැහැදිලිව පේන්නේ!'
+    },
+    {
+        id: 'P08',
+        tag: 'මනෝවිද්‍යා පාඩම 08',
+        title: 'ඔබේ මාස 3ක නිවැරදි ගමන් මග (Demo Mastery -> Prop Firm Trial -> Funded Trader)',
+        body: `
+            <p>අතේ තියෙන සල්ලි Broker ලට පූජා කරන්නේ නැතුව, බුද්ධිමත්ව ඉදිරියට යන පියවර 3 මේකයි:</p>
+            <ul>
+                <li><strong>අදියර A (මුල් මාස 1–2):</strong> පහළ තියෙන ප්‍රායෝගික පියවර 40 එකින් එක ඉගෙන ගෙන, Free Demo Account එකක <code>0.01</code> Lot එකෙන් Trades 20–30ක් නීති වලටම දාලා පුරුදු වීම.</li>
+                <li><strong>අදියර B (3 වන මාසය):</strong> FundingPips හෝ FTMO වගේ ආයතනයක <strong>Free Trial Account ($5,000 Demo)</strong> එකක් අරන්, නීති කඩ නොකර (Daily Drawdown 5% / Max Drawdown 10% ආරක්ෂා කරගෙන) ලාභ පෙන්වීම.</li>
+                <li><strong>අදියර C (මාස 3–6න් පසු):</strong> ඔබ Demo සහ Free Trials 100%ක්ම සාර්ථකව ජයගත් පසු පමණක්, Prop Firm Evaluation එකක් හරහා <code>$5,000</code> ගිණුමක් ලබාගෙන වෘත්තීයමය ලෙස Trade කිරීම!</li>
+            </ul>
+        `,
+        highlight: '🤝 මේ ගමනේ හැම පියවරකදීම Mahesh Sir ඔයාගේ පිටිපස්සෙන් ඉඳන් මගපෙන්වනවා. කිසිම දේකට හදිස්සි නොවී, පදනම 100%ක් ශක්තිමත්ව හදාගමු!'
+    }
+];
+
+const STAGES = [
+    {
+        id: 'S1',
+        title: 'Stage 01: Accounts & Tools Setup (මූලික මෘදුකාංග සහ ගිණුම් සකසා ගැනීම)',
+        sub: 'Trading ආරම්භ කිරීමට පෙර ඔබේ පරිගණකයේ සහ දුරකථනයේ තිබිය යුතු මූලික Tools 6 පිළිවෙළින් සකසා ගන්න.',
+        items: [
+            { id: 'T01', title: 'TradingView Free Account එකක් සාදා ගැනීම', desc: 'tradingview.com වෙත ගොස් ඔබේ Gmail ගිණුමෙන් නොමිලේ Account එකක් Open කර ගැනීම (Charts විශ්ලේෂණය කරන්නේ මෙහිදීය).', yt: 'How to create TradingView account and basic setup' },
+            { id: 'T02', title: 'TradingView Watchlist එකට EURUSD සහ XAUUSD දමා ගැනීම', desc: 'දකුණු පස Watchlist එකේ (+) ලකුණ ඔබා "EURUSD" (OANDA broker) සහ "XAUUSD" (Gold - OANDA broker) යන දෙක පමණක් ඉතිරි කර අනෙක් අනවශ්‍ය දේවල් ඉවත් කිරීම.', yt: 'How to setup Watchlist on TradingView for Forex' },
+            { id: 'T03', title: 'TradingView Chart එක Clean (පිරිසිදු) කරගැනීම', desc: 'Chart එක මත තිබෙන Volume හෝ වෙනත් Indicators ඉවත් කර, Background Grid Lines අඩු කර පැහැදිලිව Candles පමණක් පෙනෙන සේ සකසා ගැනීම.', yt: 'Clean TradingView chart setup tutorial' },
+            { id: 'T04', title: 'MetaTrader 5 (MT5) පරිගණකයට සහ දුරකථනයට Download කරගැනීම', desc: 'Trades දැමීමට භාවිතා කරන MetaTrader 5 (MT5) මෘදුකාංගය Laptop එකට සහ Mobile Phone එකට Install කර ගැනීම.', yt: 'How to download and install MetaTrader 5 on PC and Mobile' },
+            { id: 'T05', title: 'Free Demo Account (Trial Account) එකක් සාදා MT5 වෙත සම්බන්ධ කිරීම', desc: 'FundingPips Trial, FTMO Free Trial හෝ Broker කෙනෙකුගේ $5,000 / $10,000 Free Demo Account එකක් සාදා එහි Login ID සහ Password එක MT5 වෙත ඇතුළත් කිරීම.', yt: 'How to open free demo account on MT5' },
+            { id: 'T06', title: 'MT5 හි Market Watch වෙත EURUSD සහ XAUUSD එක් කර ගැනීම', desc: 'MT5 හි Ctrl+U (Symbols) වෙත ගොස් EURUSD සහ Metals යටතේ ඇති XAUUSD තෝරා Chart Window Open කර ගැනීම සහ Lot Size එක 0.01 ලෙස සකසා ගැනීම.', yt: 'How to add XAUUSD Gold and place demo trade on MT5' }
+        ]
+    },
+    {
+        id: 'S2',
+        title: 'Stage 02: Trading Basics & Candlestick Anatomy (මූලික සංකල්ප සහ Candle එකක කොටස්)',
+        sub: 'චාට් එකක් කියවීමට පෙර අනිවාර්යයෙන්ම දැනගත යුතු මූලික භාෂාව සහ එක Candle එකක් හැදෙන ආකාරය.',
+        items: [
+            { id: 'T07', title: 'Forex Pair එකක් (EURUSD) සහ Gold (XAUUSD) වැඩ කරන ආකාරය', desc: 'Base Currency vs Quote Currency යනු කුමක්ද සහ මිල ඉහළ යන විට Buy කිරීමෙන්ද, මිල පහළ යන විට Sell කිරීමෙන්ද ලාභ ලැබෙන ආකාරය තේරුම් ගැනීම.', yt: 'What is Forex trading Basics Sinhala / English' },
+            { id: 'T08', title: 'Pip එකක් (Pips) සහ Points ගණනය කරන ආකාරය', desc: 'EURUSD හි 4 වන දශමස්ථානය (0.0001 = 1 Pip) සහ Gold (XAUUSD) හි $1.00 ක වෙනසක් (උදා: 4100 සිට 4101 ට = 10 Pips) ගණනය කරන හැටි.', yt: 'What is a Pip in Forex and Gold XAUUSD' },
+            { id: 'T09', title: 'Lot Size (0.01 Micro Lot) සහ අවදානම ගණනය කිරීම', desc: '0.01 Lot එකකින් Trade එකක් දැමූ විට Pips 10ක් ගියොත් ලැබෙන/පාඩු වන මුදල ($1.00) සහ 1.00 Standard Lot එකක අවදානම තේරුම් ගැනීම.', yt: 'Lot size explained in Forex and Gold trading' },
+            { id: 'T10', title: 'Bid Price, Ask Price සහ Spread එක යනු කුමක්ද?', desc: 'Buy සහ Sell මිල අතර පවතින පරතරය (Spread) නිසා Trade එකක් දැමූ සැණින් සුළු සෘණ අගයකින් (-$0.05) ආරම්භ වන්නේ ඇයිදැයි තේරුම් ගැනීම.', yt: 'Bid Ask and Spread in Forex explained' },
+            { id: 'T11', title: 'Candlestick එකක ප්‍රධාන කොටස් 4 (Open, High, Low, Close)', desc: 'කොළ (Bullish) සහ රතු (Bearish) Candle එකක් ආරම්භ වන තැන (Open), අවසන් වන තැන (Close), කඳ කොටස (Body) සහ දෙපස කූරු (Wicks / Shadows) හඳුනා ගැනීම.', yt: 'Japanese Candlesticks explained Open High Low Close Body Wick' },
+            { id: 'T12', title: 'Candle Body vs Wick වලින් කියවෙන බලය (Momentum & Rejection)', desc: 'විශාල Body එකකින් Buyers/Sellers ගේ ශක්තිය පෙන්වන ආකාරය සහ දිගු Wick එකකින් මිල ප්‍රතික්ෂේප වීම (Price Rejection) පෙන්වන ආකාරය.', yt: 'How to read candlestick wicks and bodies price action' },
+            { id: 'T13', title: 'ප්‍රධාන Trading Sessions 3 (Asian, London, New York)', desc: 'ලංකාවේ වේලාවෙන් Asian Session (උදේ), London Session (දවල් 1:00 PM - 4:30 PM) සහ New York Session (හවස 6:00 PM - 9:30 PM) ක්‍රියාත්මක වන වේලාවන් සහ Volume වැඩිම වේලාවන්.', yt: 'Forex trading sessions Asian London New York time' }
+        ]
+    },
+    {
+        id: 'S3',
+        title: 'Stage 03: Timeframes, Market Structure & Support/Resistance (කාල රාමු සහ ප්‍රධාන මට්ටම්)',
+        sub: 'ඉහළ Timeframe එකේ සිට පහළ Timeframe එකට චාට් එක බලන ආකාරය සහ නිවැරදිව Support / Resistance ඉරි ඇඳීම.',
+        items: [
+            { id: 'T14', title: 'Timeframes (4H, 1H, 30m, 15m) අතර සම්බන්ධය', desc: 'විනාඩි 15 (15m) Candles 2ක් එකතු වී එක 30m Candle එකක්ද, 30m Candles 2ක් එකතු වී එක පැයේ (1H) Candle එකක්ද හැදෙන ආකාරය (Multi-Timeframe අවබෝධය).', yt: 'Multi timeframe analysis Forex 4H 1H 30m 15m' },
+            { id: 'T15', title: 'Market Structure 3: Uptrend, Downtrend සහ Range (Consolidation)', desc: 'Uptrend (Higher Highs - HH / Higher Lows - HL), Downtrend (Lower Highs - LH / Lower Lows - LL) සහ මිල එකම කොටුවක හිරවී තිබෙන Range එකක් හඳුනා ගැනීම.', yt: 'Market structure Uptrend Downtrend Consolidation HH HL LH LL' },
+            { id: 'T16', title: 'Support (තට්ටුව) සහ Resistance (වහලය) නිවැරදිව හඳුනා ගැනීම', desc: 'මිල පහළට විත් නැවතී ඉහළට හැරෙන තට්ටුව (Support) සහ මිල ඉහළට ගොස් වැදී පහළට හැරෙන වහලය (Resistance) 4H / 1H / 30m චාට් මත ඇඳීම.', yt: 'How to draw Support and Resistance zones properly' },
+            { id: 'T17', title: 'Support එකක් කැඩුණු පසු Resistance බවට පත්වීම (Role Reversal / Flip Zone)', desc: 'ශක්තිමත් තට්ටුවක් (Support) කඩාගෙන පහළට ගිය පසු, මිල නැවත උඩට පැමිණ එම ඉරේම වැදී වහලයක් (Resistance) ලෙස ක්‍රියා කරන ආකාරය.', yt: 'Support turns into resistance role reversal trading' },
+            { id: 'T18', title: '"No-Trade Box" නීතිය (කොටුවක් මැද Trade නොගැනීම)', desc: 'Support ඉර සහ Resistance ඉර අතර මැද කලාපයේදී කිසිම විටෙක Buy හෝ Sell නොකර, මිල ප්‍රධාන මට්ටමකට එනතුරු ඉවසා සිටීම.', yt: 'How to trade consolidation range breakout' }
+        ]
+    },
+    {
+        id: 'S4',
+        title: 'Stage 04: Smart Money Concepts — BOS, CHoCH, Order Blocks (OB) & FVG (EURUSD පුහුණුව)',
+        sub: 'Mahesh Sir ඉගෙන ගත් පරිදිම EURUSD (4H / 1H) චාට් එක භාවිතා කර බැංකු Trade කරන Order Blocks සහ Fair Value Gaps නිවැරදිව සලකුණු කිරීම.',
+        items: [
+            { id: 'T19', title: 'BOS (Break of Structure) හඳුනා ගැනීම', desc: 'Trend එකක් යන දිශාවටම පෙර පැවති High එක (Uptrend එකකදී) හෝ Low එක (Downtrend එකකදී) Candle Body එකකින් කඩාගෙන යාම.', yt: 'Break of Structure BOS Smart Money Concepts explained' },
+            { id: 'T20', title: 'CHoCH (Change of Character) හඳුනා ගැනීම', desc: 'මිල ගමන් කළ දිශාව වෙනස් වී Trend එක හැරෙන පළමු සංඥාව (Uptrend එකක් Downtrend එකකට හැරීම හෝ අනෙක් පැත්ත) හඳුනා ගැනීම.', yt: 'BOS vs CHoCH Change of Character SMC tutorial' },
+            { id: 'T21', title: 'Fair Value Gap (FVG / Imbalance) නිවැරදිව ඇඳීම', desc: 'වේගවත් චලනයකදී Candles 3ක් අතර පළමු Candle එකේ Wick එකත් 3 වන Candle එකේ Wick එකත් අතර ඉතිරි වන හිස් පරතරය (Imbalance) කොටුවකින් ලකුණු කිරීම.', yt: 'What is Fair Value Gap FVG Imbalance ICT SMC' },
+            { id: 'T22', title: 'Order Block (Bullish OB & Bearish OB) නිවැරදිව හඳුනා ගැනීම', desc: 'BOS එකක් සහ FVG එකක් සෑදීමට පෙර අවසානයට හැදුණු ප්‍රතිවිරුද්ධ Candle එක (Buy යාමට පෙර අවසන් රතු Candle එක / Sell යාමට පෙර අවසන් කොළ Candle එක) ලකුණු කිරීම.', yt: 'How to identify valid Order Blocks with FVG' },
+            { id: 'T23', title: 'Valid High-Probability OB එකක් තෝරා ගැනීම (OB + FVG සංයෝගය)', desc: 'සෑම Candle එකක්ම OB එකක් ලෙස නොගෙන, අනිවාර්යයෙන්ම FVG (Imbalance) එකක් සහ Structure Break (BOS) එකක් සහිත 4H සහ 1H Order Blocks පමණක් තෝරා ගැනීම.', yt: 'High probability Order Block rules with FVG' },
+            { id: 'T24', title: 'EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන Order Blocks ලකුණු කර පුහුණු වීම', desc: 'EURUSD 4H සහ 1H Chart එක Open කර දැනට මිලට ඉහළින් ඇති Bearish OB+FVG සහ පහළින් ඇති Bullish OB+FVG කොටු ඇඳ Mahesh Sir ට පෙන්වීම.', yt: 'Top down analysis EURUSD 4H 1H Order Block' }
+        ]
+    },
+    {
+        id: 'S5',
+        title: 'Stage 05: Gold (XAUUSD) "Market Fluidity" & Clean Traffic Strategy (Raja Banks ක්‍රමවේදය)',
+        sub: 'EURUSD හි ප්‍රධාන OB වලට එනතුරු බලා සිටින අතරතුර, දිනපතා Gold (XAUUSD 30m / 15m) හි පැහැදිලි Moves අල්ලා ගන්නා සරල සහ ප්‍රබල ක්‍රමවේදය.',
+        items: [
+            { id: 'T25', title: 'XAUUSD (30m) Chart එකේ ප්‍රධාන ඉරි 3 (Resistance, Minor Support, Key Target) ඇඳීම', desc: '30m Chart එකේ මිල දැනට හිරවී සිටින Resistance වහලය, Support තට්ටුව සහ ඊළඟ ප්‍රධාන ඉලක්කය ඉරි 3කින් පිරිසිදුව ඇඳ ගැනීම.', yt: 'Raja Banks support and resistance 30m chart gold' },
+            { id: 'T26', title: '"Clean Traffic" (වම් පැත්තේ බාධා නැති පිරිසිදු Candles) හඳුනා ගැනීම', desc: 'වම් පැත්තේ එක දිගට වැටුණු හෝ ඉහළ ගිය විශාල Candles තිබෙන කලාප (හිස් ලිෆ්ට් කූඩුවක් වැනි කලාප) හඳුනා ගැනීම — මිල නැවත එම කලාපයට ඇතුල් වූ විට වේගයෙන් Mirror වන බව තේරුම් ගැනීම.', yt: 'Raja Banks clean traffic mirror candles explained' },
+            { id: 'T27', title: 'නීතිය 01: 30m Candle BODY Close වන තුරු ඉවසීම (Wick Fakeout වලින් බේරීම)', desc: 'කවදාවත් Candle එකක් දුවන අතරතුරේ ඉරක ගෑවුණු පමණින් Trade නොදමා, විනාඩි 30 අවසන් වී Candle එකේ කඳ (Body එක) ඉරෙන් එළියේ Close වන තුරුම බලා සිටීම.', yt: 'Wait for candle body close breakout trading rule' },
+            { id: 'T28', title: 'නීතිය 02: අලුත් Candle එකේ "Top Wick / Bottom Wick" එක හැදෙන තුරු ඉවසීම', desc: 'Breakout Candle එක Close වූ පසු, ඊළඟ අලුත් 30m Candle එක පටන් ගත් සැණින් Sell/Buy නොකර, එය මුලින්ම කැඩුණු ඉර දෙසට පොඩ්ඩක් ගොස් Wick එක (කූර) හදා ආපහු හැරෙන විට Entry ගැනීම.', yt: 'Raja Banks wick creation impulse entry tutorial' },
+            { id: 'T29', title: 'නීතිය 03: 15m Chart එකෙන් "Speed Bumps" (Minor Traffic) පරීක්ෂා කිරීම', desc: '30m Clean Traffic එකක් දිගේ මිල යන විට, 15m Timeframe එකට මාරු වී වම් පැත්තේ පොඩි රතු/කොළ Candle එකක බාධකයක් (Speed Bump) තිබේදැයි බලා එතනදී ආරක්ෂා වීම.', yt: '15m timeframe refinement traffic zones' },
+            { id: 'T30', title: 'Realistic Take Profit (TP) දැමීම (අවසාන ඉරට පොඩ්ඩක් මෙහායින් TP ගැනීම)', desc: 'කෑදර නොවී, වම් පැත්තේ ප්‍රධාන Support/Resistance ඉරට Pips 20–30ක් මෙහායින් ආරක්ෂිතව Take Profit (TP) සකසා ගැනීම.', yt: 'Where to set Take Profit support and resistance' }
+        ]
+    },
+    {
+        id: 'S6',
+        title: 'Stage 06: Risk Management & Practical Tasks (මුදල් පාලනය සහ ප්‍රායෝගික අභ්‍යාස)',
+        sub: 'ඔබ ඉගෙන ගත් දැනුම Demo Account එක තුළ ප්‍රායෝගිකව ක්‍රියාත්මක කර Mahesh Sir ලවා පරීක්ෂා කරගන්නා අදියර.',
+        items: [
+            { id: 'T31', title: 'Stop Loss (S/L) අනිවාර්ය නීතිය', desc: 'Stop Loss එකක් නැතිව කිසිම දිනක එකම එක Trade එකක්වත් නොදැමීම සහ Breakout Candle එකේ අනෙක් පස Wick එකට පිටතින් නිවැරදිව SL තැබීම.', yt: 'How to place Stop Loss correctly in Forex and Gold' },
+            { id: 'T32', title: 'Break-Even (B/E) කර Trade එක 100% Risk-Free කරන ආකාරය', desc: 'Trade එක පළමු කඩඉම (15m Speed Bump එක) ළඟට ලාභ සහිතව ගිය සැණින්, Stop Loss ඉර Entry මිල ළඟටම ගෙනැවිත් පාඩු වීමේ අවදානම 0% කිරීම.', yt: 'How to move Stop Loss to Break Even MT5' },
+            { id: 'T33', title: 'Trailing Stop Loss (පඩියෙන් පඩිය ලාභය Lock කිරීම)', desc: 'මිල තවදුරටත් අපේ දිශාවටම කඩාගෙන යන විට Stop Loss එක පඩියෙන් පඩිය ඉදිරියට ගෙනැවිත් ලැබුණු ලාභය ආරක්ෂිතව Lock කර ගැනීම.', yt: 'How to trail stop loss behind candle highs and lows' },
+            { id: 'T34', title: '0.5% - 1% Risk Rule සහ Risk-to-Reward (1:2 සිට 1:5 දක්වා)', desc: '$5,000 ගිණුමක එක Trade එකකදී අවදානමට ලක් කරන උපරිම මුදල ($5 - $25) සහ අවදානම මෙන් 2-5 ගුණයක ලාභයක් ඉලක්ක කිරීම.', yt: 'Risk to reward ratio and 1 percent rule explained' },
+            { id: 'T35', title: '"One & Done" Sniper Rule (දවසකට එක පැහැදිලි Trade එකක් පමණයි!)', desc: 'දවසේ පළමු හොඳම Trade එකෙන් TP වැදුණු පසු කෑදරකමට තවත් Trades නොදමා එදාට Chart එක වසා දැමීම (Overtrading සහ Revenge Trading නැවැත්වීම).', yt: 'Overtrading and revenge trading psychology' },
+            { id: 'T36', title: 'ප්‍රායෝගික අභ්‍යාසය 01: EURUSD 4H/1H Order Blocks + FVG ලකුණු කර පෙන්වීම', desc: 'TradingView හි EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන OB + FVG කලාප ඇඳ Screenshot එකක් Mahesh Sir වෙත යැවීම.', yt: 'Practical task 1 EURUSD OB FVG chart' },
+            { id: 'T37', title: 'ප්‍රායෝගික අභ්‍යාසය 02: XAUUSD 30m ප්‍රධාන ඉරි 3 (Resistance, Support, Target) ඇඳ පෙන්වීම', desc: 'Gold (XAUUSD) 30m Chart එකේ ප්‍රධාන මට්ටම් 3 සහ Clean Traffic කලාප ලකුණු කර Screenshot එකක් Mahesh Sir වෙත යැවීම.', yt: 'Practical task 2 XAUUSD 30m levels' },
+            { id: 'T38', title: 'ප්‍රායෝගික අභ්‍යාසය 03: Demo Account එකේ නීති වලට ගත් පළමු Trade 5 පරීක්ෂා කරගැනීම', desc: '0.01 Lot එකෙන් SL සහ TP සහිතව Demo Account එකේ ගත් මුල්ම Trades 5 හි Before & After Screenshots Mahesh Sir ට පෙන්වා උපදෙස් ලබා ගැනීම.', yt: 'How to keep a trading journal screenshots' },
+            { id: 'T39', title: 'ප්‍රායෝගික අභ්‍යාසය 04: Break-Even සහ Trailing SL සාර්ථකව භාවිතා කළ Trade එකක් පෙන්වීම', desc: 'Live Market එකේදී Trade එකක් දමා, එය Profit වන විට Break-Even කර TP වදින තුරු කළමනාකරණය කළ ආකාරය පෙන්වීම.', yt: 'Live trade management break even to TP' },
+            { id: 'T40', title: 'ප්‍රායෝගික අභ්‍යාසය 05: දින 10ක විනයගරුක Demo Challenge එක සම්පූර්ණ කිරීම', desc: 'දවසකට එක Trade එක බැගින් නීති කඩ නොකර දින 10ක් පුරා Demo Account එක ලාභදායීව පවත්වාගෙන ගොස් අවසන් වාර්තාව Mahesh Sir ට ඉදිරිපත් කිරීම.', yt: 'Prop firm trial challenge consistency rules' }
+        ]
+    }
+];
+
+const STORAGE_KEY = 'mahesh_sir_student_trading_mastery_v1';
+let state = {
+    studentName: '',
+    studentReg: '',
+    startDate: new Date().toISOString().slice(0, 10),
+    items: {} // id -> 'done' | 'help'
+};
+let mainView = 'ALL'; // 'ALL' | 'PSYCH' | 'TECH'
+let currentFilter = 'ALL';
+
+function loadState() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+            const parsed = JSON.parse(raw);
+            state = { ...state, ...parsed };
+        }
+    } catch (e) {}
+    document.getElementById('studentName').value = state.studentName || '';
+    document.getElementById('studentReg').value = state.studentReg || '';
+    document.getElementById('startDate').value = state.startDate || new Date().toISOString().slice(0, 10);
+}
+
+function saveState() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        const pill = document.getElementById('autosaveStatus');
+        pill.textContent = '💾 Auto-Saved ✓ (' + new Date().toLocaleTimeString() + ')';
+    } catch (e) {}
+}
+
+function saveMeta() {
+    state.studentName = document.getElementById('studentName').value.trim();
+    state.studentReg = document.getElementById('studentReg').value.trim();
+    state.startDate = document.getElementById('startDate').value.trim();
+    saveState();
+}
+
+function setStatus(id, val) {
+    if (state.items[id] === val) {
+        delete state.items[id];
+    } else {
+        state.items[id] = val;
+    }
+    saveState();
+    renderAll();
+}
+
+function setMainView(view) {
+    mainView = view;
+    document.getElementById('navBtnAll').classList.toggle('active', view === 'ALL');
+    document.getElementById('navBtnPsych').classList.toggle('active', view === 'PSYCH');
+    document.getElementById('navBtnTech').classList.toggle('active', view === 'TECH');
+
+    document.getElementById('psychWrapper').style.display = (view === 'ALL' || view === 'PSYCH') ? 'block' : 'none';
+    document.getElementById('techWrapper').style.display = (view === 'ALL' || view === 'TECH') ? 'block' : 'none';
+}
+
+function setFilter(filterId, btnEl) {
+    currentFilter = filterId;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    renderAll();
+}
+
+function renderAll() {
+    let total = 0, done = 0, help = 0;
+    const helpItems = [];
+
+    // 1. Render Psychology Chapters
+    const psychContainer = document.getElementById('psychChaptersContainer');
+    psychContainer.innerHTML = '';
+
+    PSYCH_CHAPTERS.forEach(ch => {
+        total++;
+        const st = state.items[ch.id] || '';
+        if (st === 'done') done++;
+        if (st === 'help') {
+            help++;
+            helpItems.push(`<li><strong>[${ch.id}] ${ch.title}</strong> (මනෝවිද්‍යා පාඩම)</li>`);
+        }
+
+        const stateClass = st === 'done' ? 'state-done' : (st === 'help' ? 'state-help' : '');
+        const doneActive = st === 'done' ? 'active' : '';
+        const helpActive = st === 'help' ? 'active' : '';
+
+        const div = document.createElement('div');
+        div.className = `psych-chapter ${stateClass}`;
+        div.innerHTML = `
+            <div class="chapter-top">
+                <div>
+                    <span class="chapter-tag">${ch.tag} (${ch.id})</span>
+                    <div class="chapter-title">
+                        ${ch.title}
+                        <span class="status-badge badge-done">✓ කියවා තේරුම් ගත්තා</span>
+                        <span class="status-badge badge-help">❓ පැහැදිලි මදි</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter-body">
+                ${ch.body}
+                <div class="chapter-highlight">${ch.highlight}</div>
+            </div>
+            <div class="chapter-footer">
+                <span style="font-size: 0.84rem; color: #94a3b8;">මෙම මනෝවිද්‍යා පාඩම කියවා අවසන් වූ පසු ලකුණු කරන්න:</span>
+                <div class="item-actions">
+                    <button class="chk-btn btn-done ${doneActive}" onclick="setStatus('${ch.id}', 'done')">✅ කියවා තේරුම් ගත්තා</button>
+                    <button class="chk-btn btn-help ${helpActive}" onclick="setStatus('${ch.id}', 'help')">❓ පැහැදිලි මදි</button>
+                </div>
+            </div>
+        `;
+        psychContainer.appendChild(div);
+    });
+
+    // 2. Render Practical Checklist Stages
+    const container = document.getElementById('modulesContainer');
+    container.innerHTML = '';
+
+    STAGES.forEach(stage => {
+        let stageDone = 0;
+        stage.items.forEach(it => {
+            total++;
+            const st = state.items[it.id];
+            if (st === 'done') { done++; stageDone++; }
+            if (st === 'help') {
+                help++;
+                helpItems.push(`<li><strong>[${it.id}] ${it.title}:</strong> ${it.desc}</li>`);
+            }
+        });
+
+        if (currentFilter !== 'ALL' && currentFilter !== stage.id) return;
+
+        const card = document.createElement('div');
+        card.className = 'module-card';
+
+        let rowsHtml = '';
+        stage.items.forEach(it => {
+            const st = state.items[it.id] || '';
+            const rowClass = st === 'done' ? 'state-done' : (st === 'help' ? 'state-help' : '');
+            const doneActive = st === 'done' ? 'active' : '';
+            const helpActive = st === 'help' ? 'active' : '';
+
+            rowsHtml += `
+                <div class="item-row ${rowClass}">
+                    <div class="item-left">
+                        <div class="step-num">${it.id}</div>
+                        <div class="item-content">
+                            <h4>
+                                ${it.title}
+                                <span class="status-badge badge-done">✓ ඉගෙන ගත්තා</span>
+                                <span class="status-badge badge-help">❓ පැහැදිලි මදි</span>
+                            </h4>
+                            <p>${it.desc}</p>
+                            <span class="yt-tag">▶ YouTube Search: "${it.yt}"</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="chk-btn btn-done ${doneActive}" onclick="setStatus('${it.id}', 'done')">✅ ඉගෙන ගත්තා</button>
+                        <button class="chk-btn btn-help ${helpActive}" onclick="setStatus('${it.id}', 'help')">❓ පැහැදිලි මදි</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        card.innerHTML = `
+            <div class="module-header">
+                <div>
+                    <div class="module-title">${stage.title}</div>
+                    <div class="module-sub">${stage.sub}</div>
+                </div>
+                <div class="module-badge">සම්පූර්ණ: ${stageDone} / ${stage.items.length}</div>
+            </div>
+            <div>${rowsHtml}</div>
+        `;
+        container.appendChild(card);
+    });
+
+    const rem = total - done - help;
+    const pct = Math.round((done / total) * 100);
+
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('doneCount').textContent = done;
+    document.getElementById('helpCount').textContent = help;
+    document.getElementById('remCount').textContent = rem;
+    document.getElementById('pctText').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+
+    const helpBox = document.getElementById('helpSummaryBox');
+    const helpList = document.getElementById('helpSummaryList');
+    if (helpItems.length > 0) {
+        helpBox.classList.add('visible');
+        helpList.innerHTML = helpItems.join('');
+    } else {
+        helpBox.classList.remove('visible');
+        helpList.innerHTML = '';
+    }
+}
+
+function exportPDF() {
+    setMainView('ALL');
+    currentFilter = 'ALL';
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    renderAll();
+
+    const sName = (state.studentName || 'Student').replace(/\s+/g, '_');
+    const sReg = (state.studentReg || '').replace(/\s+/g, '_');
+    const origTitle = document.title;
+    document.title = sReg ? `Trading_Mastery_Progress_${sName}_${sReg}` : `Trading_Mastery_Progress_${sName}`;
+    window.print();
+    setTimeout(() => { document.title = origTitle; }, 1000);
+}
+
+function copyWhatsAppSummary() {
+    let done = 0, help = 0;
+    const helpLines = [];
+
+    PSYCH_CHAPTERS.forEach(ch => {
+        const st = state.items[ch.id];
+        if (st === 'done') done++;
+        if (st === 'help') {
+            help++;
+            helpLines.push(`❓ ${ch.id}: ${ch.title}`);
+        }
+    });
+
+    STAGES.forEach(s => s.items.forEach(it => {
+        const st = state.items[it.id];
+        if (st === 'done') done++;
+        if (st === 'help') {
+            help++;
+            helpLines.push(`❓ ${it.id}: ${it.title}`);
+        }
+    }));
+
+    const sName = state.studentName || 'Student'; const sReg = state.studentReg ? ` (${state.studentReg})` : ''; let text = `📊 *Trading Mastery Progress - ${sName}${sReg}*\n`;
+    text += `✅ සම්පූර්ණ කළ පාඩම්: ${done} / 48\n`;
+    text += `❓ පැහැදිලි කරගත යුතු කොටස්: ${help}\n\n`;
+    if (helpLines.length > 0) {
+        text += `*Mahesh Sir ගෙන් අසා දැනගත යුතු කොටස්:*\n` + helpLines.join('\n');
+    } else {
+        text += `දැනට ලකුණු කළ සියලුම මනෝවිද්‍යා සහ ප්‍රායෝගික කොටස් පැහැදිලිව තේරුම් ගත්තා Sir! 💪`;
+    }
+
+    navigator.clipboard.writeText(text).then(() => {
+        alert('WhatsApp සාරාංශය Copy වුණා! දැන් Mahesh Sir ට Paste කරලා යවන්න පුළුවන්.');
+    });
+}
+
+function resetAll() {
+    if (confirm('ඔබ ලකුණු කළ සියලුම Ticks මකා මුල සිට ආරම්භ කිරීමට අවශ්‍යද?')) {
+        state.items = {};
+        saveState();
+        renderAll();
+    }
+}
+
+loadState();
+renderAll();
+</script>
+</body>
+</html>
