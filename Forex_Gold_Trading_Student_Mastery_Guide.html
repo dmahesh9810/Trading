@@ -613,6 +613,183 @@
                 color: #991b1b !important;
             }
         }
+
+        /* Note Accordion & Drawer */
+        .item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .item-badges {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 7px;
+        }
+
+        .btn-toggle-note {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            padding: 4px 11px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-toggle-note:hover {
+            background: rgba(56, 189, 248, 0.22);
+            border-color: var(--accent);
+        }
+
+        .btn-toggle-note.active {
+            background: #0284c7;
+            color: #fff;
+            border-color: #38bdf8;
+        }
+
+        .yt-link-pill {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.2s;
+        }
+
+        .yt-link-pill:hover {
+            background: rgba(239, 68, 68, 0.22);
+            color: #fff;
+        }
+
+        /* Expandable Drawer */
+        .item-drawer {
+            display: none;
+            width: 100%;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        .item-drawer.open {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .drawer-content {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .note-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+
+        .note-box h5 {
+            font-size: 0.86rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .note-box p {
+            font-size: 0.86rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .note-concept h5 { color: #38bdf8; }
+        .note-rules h5 { color: #fbbf24; }
+        .note-example {
+            background: rgba(34, 197, 94, 0.08);
+            border-color: rgba(34, 197, 94, 0.25);
+            margin-bottom: 12px;
+        }
+        .note-example h5 { color: #4ade80; }
+
+        .drawer-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-yt-full {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            color: #fff;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.1s;
+        }
+
+        .btn-yt-full:active { transform: scale(0.98); }
+
+        .btn-close-drawer {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-close-drawer:hover {
+            color: #fff;
+            border-color: #94a3b8;
+        }
+
+        .item-row {
+            display: block; /* now contains top and drawer */
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -712,7 +889,9 @@
     </div>
 </div>
 
+
 <script>
+
 const PSYCH_CHAPTERS = [
     {
         id: 'P01',
@@ -834,90 +1013,7 @@ const PSYCH_CHAPTERS = [
     }
 ];
 
-const STAGES = [
-    {
-        id: 'S1',
-        title: 'Stage 01: Accounts & Tools Setup (මූලික මෘදුකාංග සහ ගිණුම් සකසා ගැනීම)',
-        sub: 'Trading ආරම්භ කිරීමට පෙර ඔබේ පරිගණකයේ සහ දුරකථනයේ තිබිය යුතු මූලික Tools 6 පිළිවෙළින් සකසා ගන්න.',
-        items: [
-            { id: 'T01', title: 'TradingView Free Account එකක් සාදා ගැනීම', desc: 'tradingview.com වෙත ගොස් ඔබේ Gmail ගිණුමෙන් නොමිලේ Account එකක් Open කර ගැනීම (Charts විශ්ලේෂණය කරන්නේ මෙහිදීය).', yt: 'How to create TradingView account and basic setup' },
-            { id: 'T02', title: 'TradingView Watchlist එකට EURUSD සහ XAUUSD දමා ගැනීම', desc: 'දකුණු පස Watchlist එකේ (+) ලකුණ ඔබා "EURUSD" (OANDA broker) සහ "XAUUSD" (Gold - OANDA broker) යන දෙක පමණක් ඉතිරි කර අනෙක් අනවශ්‍ය දේවල් ඉවත් කිරීම.', yt: 'How to setup Watchlist on TradingView for Forex' },
-            { id: 'T03', title: 'TradingView Chart එක Clean (පිරිසිදු) කරගැනීම', desc: 'Chart එක මත තිබෙන Volume හෝ වෙනත් Indicators ඉවත් කර, Background Grid Lines අඩු කර පැහැදිලිව Candles පමණක් පෙනෙන සේ සකසා ගැනීම.', yt: 'Clean TradingView chart setup tutorial' },
-            { id: 'T04', title: 'MetaTrader 5 (MT5) පරිගණකයට සහ දුරකථනයට Download කරගැනීම', desc: 'Trades දැමීමට භාවිතා කරන MetaTrader 5 (MT5) මෘදුකාංගය Laptop එකට සහ Mobile Phone එකට Install කර ගැනීම.', yt: 'How to download and install MetaTrader 5 on PC and Mobile' },
-            { id: 'T05', title: 'Free Demo Account (Trial Account) එකක් සාදා MT5 වෙත සම්බන්ධ කිරීම', desc: 'FundingPips Trial, FTMO Free Trial හෝ Broker කෙනෙකුගේ $5,000 / $10,000 Free Demo Account එකක් සාදා එහි Login ID සහ Password එක MT5 වෙත ඇතුළත් කිරීම.', yt: 'How to open free demo account on MT5' },
-            { id: 'T06', title: 'MT5 හි Market Watch වෙත EURUSD සහ XAUUSD එක් කර ගැනීම', desc: 'MT5 හි Ctrl+U (Symbols) වෙත ගොස් EURUSD සහ Metals යටතේ ඇති XAUUSD තෝරා Chart Window Open කර ගැනීම සහ Lot Size එක 0.01 ලෙස සකසා ගැනීම.', yt: 'How to add XAUUSD Gold and place demo trade on MT5' }
-        ]
-    },
-    {
-        id: 'S2',
-        title: 'Stage 02: Trading Basics & Candlestick Anatomy (මූලික සංකල්ප සහ Candle එකක කොටස්)',
-        sub: 'චාට් එකක් කියවීමට පෙර අනිවාර්යයෙන්ම දැනගත යුතු මූලික භාෂාව සහ එක Candle එකක් හැදෙන ආකාරය.',
-        items: [
-            { id: 'T07', title: 'Forex Pair එකක් (EURUSD) සහ Gold (XAUUSD) වැඩ කරන ආකාරය', desc: 'Base Currency vs Quote Currency යනු කුමක්ද සහ මිල ඉහළ යන විට Buy කිරීමෙන්ද, මිල පහළ යන විට Sell කිරීමෙන්ද ලාභ ලැබෙන ආකාරය තේරුම් ගැනීම.', yt: 'What is Forex trading Basics Sinhala / English' },
-            { id: 'T08', title: 'Pip එකක් (Pips) සහ Points ගණනය කරන ආකාරය', desc: 'EURUSD හි 4 වන දශමස්ථානය (0.0001 = 1 Pip) සහ Gold (XAUUSD) හි $1.00 ක වෙනසක් (උදා: 4100 සිට 4101 ට = 10 Pips) ගණනය කරන හැටි.', yt: 'What is a Pip in Forex and Gold XAUUSD' },
-            { id: 'T09', title: 'Lot Size (0.01 Micro Lot) සහ අවදානම ගණනය කිරීම', desc: '0.01 Lot එකකින් Trade එකක් දැමූ විට Pips 10ක් ගියොත් ලැබෙන/පාඩු වන මුදල ($1.00) සහ 1.00 Standard Lot එකක අවදානම තේරුම් ගැනීම.', yt: 'Lot size explained in Forex and Gold trading' },
-            { id: 'T10', title: 'Bid Price, Ask Price සහ Spread එක යනු කුමක්ද?', desc: 'Buy සහ Sell මිල අතර පවතින පරතරය (Spread) නිසා Trade එකක් දැමූ සැණින් සුළු සෘණ අගයකින් (-$0.05) ආරම්භ වන්නේ ඇයිදැයි තේරුම් ගැනීම.', yt: 'Bid Ask and Spread in Forex explained' },
-            { id: 'T11', title: 'Candlestick එකක ප්‍රධාන කොටස් 4 (Open, High, Low, Close)', desc: 'කොළ (Bullish) සහ රතු (Bearish) Candle එකක් ආරම්භ වන තැන (Open), අවසන් වන තැන (Close), කඳ කොටස (Body) සහ දෙපස කූරු (Wicks / Shadows) හඳුනා ගැනීම.', yt: 'Japanese Candlesticks explained Open High Low Close Body Wick' },
-            { id: 'T12', title: 'Candle Body vs Wick වලින් කියවෙන බලය (Momentum & Rejection)', desc: 'විශාල Body එකකින් Buyers/Sellers ගේ ශක්තිය පෙන්වන ආකාරය සහ දිගු Wick එකකින් මිල ප්‍රතික්ෂේප වීම (Price Rejection) පෙන්වන ආකාරය.', yt: 'How to read candlestick wicks and bodies price action' },
-            { id: 'T13', title: 'ප්‍රධාන Trading Sessions 3 (Asian, London, New York)', desc: 'ලංකාවේ වේලාවෙන් Asian Session (උදේ), London Session (දවල් 1:00 PM - 4:30 PM) සහ New York Session (හවස 6:00 PM - 9:30 PM) ක්‍රියාත්මක වන වේලාවන් සහ Volume වැඩිම වේලාවන්.', yt: 'Forex trading sessions Asian London New York time' }
-        ]
-    },
-    {
-        id: 'S3',
-        title: 'Stage 03: Timeframes, Market Structure & Support/Resistance (කාල රාමු සහ ප්‍රධාන මට්ටම්)',
-        sub: 'ඉහළ Timeframe එකේ සිට පහළ Timeframe එකට චාට් එක බලන ආකාරය සහ නිවැරදිව Support / Resistance ඉරි ඇඳීම.',
-        items: [
-            { id: 'T14', title: 'Timeframes (4H, 1H, 30m, 15m) අතර සම්බන්ධය', desc: 'විනාඩි 15 (15m) Candles 2ක් එකතු වී එක 30m Candle එකක්ද, 30m Candles 2ක් එකතු වී එක පැයේ (1H) Candle එකක්ද හැදෙන ආකාරය (Multi-Timeframe අවබෝධය).', yt: 'Multi timeframe analysis Forex 4H 1H 30m 15m' },
-            { id: 'T15', title: 'Market Structure 3: Uptrend, Downtrend සහ Range (Consolidation)', desc: 'Uptrend (Higher Highs - HH / Higher Lows - HL), Downtrend (Lower Highs - LH / Lower Lows - LL) සහ මිල එකම කොටුවක හිරවී තිබෙන Range එකක් හඳුනා ගැනීම.', yt: 'Market structure Uptrend Downtrend Consolidation HH HL LH LL' },
-            { id: 'T16', title: 'Support (තට්ටුව) සහ Resistance (වහලය) නිවැරදිව හඳුනා ගැනීම', desc: 'මිල පහළට විත් නැවතී ඉහළට හැරෙන තට්ටුව (Support) සහ මිල ඉහළට ගොස් වැදී පහළට හැරෙන වහලය (Resistance) 4H / 1H / 30m චාට් මත ඇඳීම.', yt: 'How to draw Support and Resistance zones properly' },
-            { id: 'T17', title: 'Support එකක් කැඩුණු පසු Resistance බවට පත්වීම (Role Reversal / Flip Zone)', desc: 'ශක්තිමත් තට්ටුවක් (Support) කඩාගෙන පහළට ගිය පසු, මිල නැවත උඩට පැමිණ එම ඉරේම වැදී වහලයක් (Resistance) ලෙස ක්‍රියා කරන ආකාරය.', yt: 'Support turns into resistance role reversal trading' },
-            { id: 'T18', title: '"No-Trade Box" නීතිය (කොටුවක් මැද Trade නොගැනීම)', desc: 'Support ඉර සහ Resistance ඉර අතර මැද කලාපයේදී කිසිම විටෙක Buy හෝ Sell නොකර, මිල ප්‍රධාන මට්ටමකට එනතුරු ඉවසා සිටීම.', yt: 'How to trade consolidation range breakout' }
-        ]
-    },
-    {
-        id: 'S4',
-        title: 'Stage 04: Smart Money Concepts — BOS, CHoCH, Order Blocks (OB) & FVG (EURUSD පුහුණුව)',
-        sub: 'Mahesh Sir ඉගෙන ගත් පරිදිම EURUSD (4H / 1H) චාට් එක භාවිතා කර බැංකු Trade කරන Order Blocks සහ Fair Value Gaps නිවැරදිව සලකුණු කිරීම.',
-        items: [
-            { id: 'T19', title: 'BOS (Break of Structure) හඳුනා ගැනීම', desc: 'Trend එකක් යන දිශාවටම පෙර පැවති High එක (Uptrend එකකදී) හෝ Low එක (Downtrend එකකදී) Candle Body එකකින් කඩාගෙන යාම.', yt: 'Break of Structure BOS Smart Money Concepts explained' },
-            { id: 'T20', title: 'CHoCH (Change of Character) හඳුනා ගැනීම', desc: 'මිල ගමන් කළ දිශාව වෙනස් වී Trend එක හැරෙන පළමු සංඥාව (Uptrend එකක් Downtrend එකකට හැරීම හෝ අනෙක් පැත්ත) හඳුනා ගැනීම.', yt: 'BOS vs CHoCH Change of Character SMC tutorial' },
-            { id: 'T21', title: 'Fair Value Gap (FVG / Imbalance) නිවැරදිව ඇඳීම', desc: 'වේගවත් චලනයකදී Candles 3ක් අතර පළමු Candle එකේ Wick එකත් 3 වන Candle එකේ Wick එකත් අතර ඉතිරි වන හිස් පරතරය (Imbalance) කොටුවකින් ලකුණු කිරීම.', yt: 'What is Fair Value Gap FVG Imbalance ICT SMC' },
-            { id: 'T22', title: 'Order Block (Bullish OB & Bearish OB) නිවැරදිව හඳුනා ගැනීම', desc: 'BOS එකක් සහ FVG එකක් සෑදීමට පෙර අවසානයට හැදුණු ප්‍රතිවිරුද්ධ Candle එක (Buy යාමට පෙර අවසන් රතු Candle එක / Sell යාමට පෙර අවසන් කොළ Candle එක) ලකුණු කිරීම.', yt: 'How to identify valid Order Blocks with FVG' },
-            { id: 'T23', title: 'Valid High-Probability OB එකක් තෝරා ගැනීම (OB + FVG සංයෝගය)', desc: 'සෑම Candle එකක්ම OB එකක් ලෙස නොගෙන, අනිවාර්යයෙන්ම FVG (Imbalance) එකක් සහ Structure Break (BOS) එකක් සහිත 4H සහ 1H Order Blocks පමණක් තෝරා ගැනීම.', yt: 'High probability Order Block rules with FVG' },
-            { id: 'T24', title: 'EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන Order Blocks ලකුණු කර පුහුණු වීම', desc: 'EURUSD 4H සහ 1H Chart එක Open කර දැනට මිලට ඉහළින් ඇති Bearish OB+FVG සහ පහළින් ඇති Bullish OB+FVG කොටු ඇඳ Mahesh Sir ට පෙන්වීම.', yt: 'Top down analysis EURUSD 4H 1H Order Block' }
-        ]
-    },
-    {
-        id: 'S5',
-        title: 'Stage 05: Gold (XAUUSD) "Market Fluidity" & Clean Traffic Strategy (Raja Banks ක්‍රමවේදය)',
-        sub: 'EURUSD හි ප්‍රධාන OB වලට එනතුරු බලා සිටින අතරතුර, දිනපතා Gold (XAUUSD 30m / 15m) හි පැහැදිලි Moves අල්ලා ගන්නා සරල සහ ප්‍රබල ක්‍රමවේදය.',
-        items: [
-            { id: 'T25', title: 'XAUUSD (30m) Chart එකේ ප්‍රධාන ඉරි 3 (Resistance, Minor Support, Key Target) ඇඳීම', desc: '30m Chart එකේ මිල දැනට හිරවී සිටින Resistance වහලය, Support තට්ටුව සහ ඊළඟ ප්‍රධාන ඉලක්කය ඉරි 3කින් පිරිසිදුව ඇඳ ගැනීම.', yt: 'Raja Banks support and resistance 30m chart gold' },
-            { id: 'T26', title: '"Clean Traffic" (වම් පැත්තේ බාධා නැති පිරිසිදු Candles) හඳුනා ගැනීම', desc: 'වම් පැත්තේ එක දිගට වැටුණු හෝ ඉහළ ගිය විශාල Candles තිබෙන කලාප (හිස් ලිෆ්ට් කූඩුවක් වැනි කලාප) හඳුනා ගැනීම — මිල නැවත එම කලාපයට ඇතුල් වූ විට වේගයෙන් Mirror වන බව තේරුම් ගැනීම.', yt: 'Raja Banks clean traffic mirror candles explained' },
-            { id: 'T27', title: 'නීතිය 01: 30m Candle BODY Close වන තුරු ඉවසීම (Wick Fakeout වලින් බේරීම)', desc: 'කවදාවත් Candle එකක් දුවන අතරතුරේ ඉරක ගෑවුණු පමණින් Trade නොදමා, විනාඩි 30 අවසන් වී Candle එකේ කඳ (Body එක) ඉරෙන් එළියේ Close වන තුරුම බලා සිටීම.', yt: 'Wait for candle body close breakout trading rule' },
-            { id: 'T28', title: 'නීතිය 02: අලුත් Candle එකේ "Top Wick / Bottom Wick" එක හැදෙන තුරු ඉවසීම', desc: 'Breakout Candle එක Close වූ පසු, ඊළඟ අලුත් 30m Candle එක පටන් ගත් සැණින් Sell/Buy නොකර, එය මුලින්ම කැඩුණු ඉර දෙසට පොඩ්ඩක් ගොස් Wick එක (කූර) හදා ආපහු හැරෙන විට Entry ගැනීම.', yt: 'Raja Banks wick creation impulse entry tutorial' },
-            { id: 'T29', title: 'නීතිය 03: 15m Chart එකෙන් "Speed Bumps" (Minor Traffic) පරීක්ෂා කිරීම', desc: '30m Clean Traffic එකක් දිගේ මිල යන විට, 15m Timeframe එකට මාරු වී වම් පැත්තේ පොඩි රතු/කොළ Candle එකක බාධකයක් (Speed Bump) තිබේදැයි බලා එතනදී ආරක්ෂා වීම.', yt: '15m timeframe refinement traffic zones' },
-            { id: 'T30', title: 'Realistic Take Profit (TP) දැමීම (අවසාන ඉරට පොඩ්ඩක් මෙහායින් TP ගැනීම)', desc: 'කෑදර නොවී, වම් පැත්තේ ප්‍රධාන Support/Resistance ඉරට Pips 20–30ක් මෙහායින් ආරක්ෂිතව Take Profit (TP) සකසා ගැනීම.', yt: 'Where to set Take Profit support and resistance' }
-        ]
-    },
-    {
-        id: 'S6',
-        title: 'Stage 06: Risk Management & Practical Tasks (මුදල් පාලනය සහ ප්‍රායෝගික අභ්‍යාස)',
-        sub: 'ඔබ ඉගෙන ගත් දැනුම Demo Account එක තුළ ප්‍රායෝගිකව ක්‍රියාත්මක කර Mahesh Sir ලවා පරීක්ෂා කරගන්නා අදියර.',
-        items: [
-            { id: 'T31', title: 'Stop Loss (S/L) අනිවාර්ය නීතිය', desc: 'Stop Loss එකක් නැතිව කිසිම දිනක එකම එක Trade එකක්වත් නොදැමීම සහ Breakout Candle එකේ අනෙක් පස Wick එකට පිටතින් නිවැරදිව SL තැබීම.', yt: 'How to place Stop Loss correctly in Forex and Gold' },
-            { id: 'T32', title: 'Break-Even (B/E) කර Trade එක 100% Risk-Free කරන ආකාරය', desc: 'Trade එක පළමු කඩඉම (15m Speed Bump එක) ළඟට ලාභ සහිතව ගිය සැණින්, Stop Loss ඉර Entry මිල ළඟටම ගෙනැවිත් පාඩු වීමේ අවදානම 0% කිරීම.', yt: 'How to move Stop Loss to Break Even MT5' },
-            { id: 'T33', title: 'Trailing Stop Loss (පඩියෙන් පඩිය ලාභය Lock කිරීම)', desc: 'මිල තවදුරටත් අපේ දිශාවටම කඩාගෙන යන විට Stop Loss එක පඩියෙන් පඩිය ඉදිරියට ගෙනැවිත් ලැබුණු ලාභය ආරක්ෂිතව Lock කර ගැනීම.', yt: 'How to trail stop loss behind candle highs and lows' },
-            { id: 'T34', title: '0.5% - 1% Risk Rule සහ Risk-to-Reward (1:2 සිට 1:5 දක්වා)', desc: '$5,000 ගිණුමක එක Trade එකකදී අවදානමට ලක් කරන උපරිම මුදල ($5 - $25) සහ අවදානම මෙන් 2-5 ගුණයක ලාභයක් ඉලක්ක කිරීම.', yt: 'Risk to reward ratio and 1 percent rule explained' },
-            { id: 'T35', title: '"One & Done" Sniper Rule (දවසකට එක පැහැදිලි Trade එකක් පමණයි!)', desc: 'දවසේ පළමු හොඳම Trade එකෙන් TP වැදුණු පසු කෑදරකමට තවත් Trades නොදමා එදාට Chart එක වසා දැමීම (Overtrading සහ Revenge Trading නැවැත්වීම).', yt: 'Overtrading and revenge trading psychology' },
-            { id: 'T36', title: 'ප්‍රායෝගික අභ්‍යාසය 01: EURUSD 4H/1H Order Blocks + FVG ලකුණු කර පෙන්වීම', desc: 'TradingView හි EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන OB + FVG කලාප ඇඳ Screenshot එකක් Mahesh Sir වෙත යැවීම.', yt: 'Practical task 1 EURUSD OB FVG chart' },
-            { id: 'T37', title: 'ප්‍රායෝගික අභ්‍යාසය 02: XAUUSD 30m ප්‍රධාන ඉරි 3 (Resistance, Support, Target) ඇඳ පෙන්වීම', desc: 'Gold (XAUUSD) 30m Chart එකේ ප්‍රධාන මට්ටම් 3 සහ Clean Traffic කලාප ලකුණු කර Screenshot එකක් Mahesh Sir වෙත යැවීම.', yt: 'Practical task 2 XAUUSD 30m levels' },
-            { id: 'T38', title: 'ප්‍රායෝගික අභ්‍යාසය 03: Demo Account එකේ නීති වලට ගත් පළමු Trade 5 පරීක්ෂා කරගැනීම', desc: '0.01 Lot එකෙන් SL සහ TP සහිතව Demo Account එකේ ගත් මුල්ම Trades 5 හි Before & After Screenshots Mahesh Sir ට පෙන්වා උපදෙස් ලබා ගැනීම.', yt: 'How to keep a trading journal screenshots' },
-            { id: 'T39', title: 'ප්‍රායෝගික අභ්‍යාසය 04: Break-Even සහ Trailing SL සාර්ථකව භාවිතා කළ Trade එකක් පෙන්වීම', desc: 'Live Market එකේදී Trade එකක් දමා, එය Profit වන විට Break-Even කර TP වදින තුරු කළමනාකරණය කළ ආකාරය පෙන්වීම.', yt: 'Live trade management break even to TP' },
-            { id: 'T40', title: 'ප්‍රායෝගික අභ්‍යාසය 05: දින 10ක විනයගරුක Demo Challenge එක සම්පූර්ණ කිරීම', desc: 'දවසකට එක Trade එක බැගින් නීති කඩ නොකර දින 10ක් පුරා Demo Account එක ලාභදායීව පවත්වාගෙන ගොස් අවසන් වාර්තාව Mahesh Sir ට ඉදිරිපත් කිරීම.', yt: 'Prop firm trial challenge consistency rules' }
-        ]
-    }
-];
+const STAGES = [{"id": "S1", "title": "Stage 01: Accounts & Tools Setup (මූලික මෘදුකාංග සහ ගිණුම් සකසා ගැනීම)", "sub": "Trading ආරම්භ කිරීමට පෙර ඔබේ පරිගණකයේ සහ දුරකථනයේ තිබිය යුතු මූලික Tools 6 පිළිවෙළින් සකසා ගන්න.", "items": [{"id": "T01", "title": "TradingView Free Account එකක් සාදා ගැනීම", "desc": "tradingview.com වෙත ගොස් ඔබේ Gmail ගිණුමෙන් නොමිලේ Account එකක් Open කර ගැනීම (Charts විශ්ලේෂණය කරන්නේ මෙහිදීය).", "yt": "How to create TradingView account and basic setup", "note_concept": "TradingView (tradingview.com) කියන්නේ ලෝකයේ මිලියන 50කට අධික Traders ලා භාවිතා කරන ප්‍රධානතම Chart විශ්ලේෂණ වේදිකාවයි. අපි මිල ඉහළ යයිද පහළ යයිද කියලා Analysis කරන්නේ මෙහිදීය.", "note_rules": "1. Gmail හරහා 100% Free Account එකක් සාදා ගන්න (කිසිදු මුදල් ගෙවීමක් අවශ්‍ය නැත). 2. Layout එක Save කර තබාගත හැක. 3. Chart එකේ Tools (Horizontal lines, Rectangle, Fib) ප්‍රගුණ කරන්න.", "note_example": "TradingView එකේ Search Bar එකේ 'EURUSD' හෝ 'XAUUSD' යැයි Search කර OANDA Broker ගේ Chart එක Open කර බලන්න."}, {"id": "T02", "title": "TradingView Watchlist එකට EURUSD සහ XAUUSD දමා ගැනීම", "desc": "දකුණු පස Watchlist එකේ (+) ලකුණ ඔබා 'EURUSD' (OANDA broker) සහ 'XAUUSD' (Gold - OANDA broker) යන දෙක පමණක් ඉතිරි කර අනෙක් අනවශ්‍ය දේවල් ඉවත් කිරීම.", "yt": "How to setup Watchlist on TradingView for Forex", "note_concept": "Watchlist කියන්නේ අප නිතර නිරීක්ෂණය කරන Currency Pairs සහ භාණ්ඩ ලැයිස්තුවයි. ආරම්භක අවධියේදී ඕනෑවට වඩා Pairs බැලීමෙන් මනස අවුල් වී වැරදි තීරණ ගනී.", "note_rules": "1. දකුණු පස ඇති Watchlist එකේ අනවශ්‍ය Crypto, Stocks සහ Forex Pairs සියල්ල ඉවත් කරන්න (X ලකුණ ඔබන්න). 2. ලැයිස්තුවේ ඉතිරි කරගත යුත්තේ EURUSD (OANDA) සහ XAUUSD (Gold - OANDA) යන දෙක පමණි.", "note_example": "Watchlist එකේ ඉහළින්ම (+) ලකුණ ඔබා 'EURUSD' සහ 'XAUUSD' ඇතුළත් කර තබා ගන්න."}, {"id": "T03", "title": "TradingView Chart එක Clean (පිරිසිදු) කරගැනීම", "desc": "Chart එක මත තිබෙන Volume හෝ වෙනත් Indicators ඉවත් කර, Background Grid Lines අඩු කර පැහැදිලිව Candles පමණක් පෙනෙන සේ සකසා ගැනීම.", "yt": "Clean TradingView chart setup tutorial", "note_concept": "Clean Chart (පිරිසිදු චාට් එකක්) යනු RSI, MACD, Moving Averages වැනි Indicator වලින් තොර, Candles සහ මිල හැසිරීම පමණක් පැහැදිලිව පෙනෙන චාට් එකකි.", "note_rules": "1. Chart එකේ යටින් ඇති Volume Indicator එක Remove කරන්න. 2. Chart Settings (Right click -> Settings) වෙත ගොස් Canvas -> Grid lines වල Opacity එක 0% කර Background එක Solid Dark කරගන්න. 3. පිරිසිදු චාට් එකකින් ඇස් වෙහෙසට පත් නොවේ.", "note_example": "ඔබේ Chart එක මත ඇත්තේ Candles පමණක්දැයි පරීක්ෂා කරන්න. වෙනත් කිසිදු Indicator එකක් තබා නොගන්න."}, {"id": "T04", "title": "MetaTrader 5 (MT5) පරිගණකයට සහ දුරකථනයට Download කරගැනීම", "desc": "Trades දැමීමට භාවිතා කරන MetaTrader 5 (MT5) මෘදුකාංගය Laptop එකට සහ Mobile Phone එකට Install කර ගැනීම.", "yt": "How to download and install MetaTrader 5 on PC and Mobile", "note_concept": "MetaTrader 5 (MT5) යනු විශ්ලේෂණය කළ පසු සැබෑ ලෙසම Buy / Sell Orders (ගනුදෙනු) තබන Terminal මෘදුකාංගයයි. TradingView එකේ Chart බලන අතර, Trade දමන්නේ MT5 මගිනි.", "note_rules": "1. Laptop එකට නිල MetaTrader 5 මෘදුකාංගය Download කරගන්න. 2. Mobile Phone එකට Play Store / App Store මගින් MT5 App එක Install කරගන්න. 3. F9 යතුර එබීමෙන් New Order Window එක ලැබේ.", "note_example": "Laptop එකේ MT5 Open කර Ctrl+T එබූ විට යටින් Toolbox (Trade, History, Exposure) දිස්වන ආකාරය බලන්න."}, {"id": "T05", "title": "Free Demo Account (Trial Account) එකක් සාදා MT5 වෙත සම්බන්ධ කිරීම", "desc": "FundingPips Trial, FTMO Free Trial හෝ Broker කෙනෙකුගේ $5,000 / $10,000 Free Demo Account එකක් සාදා එහි Login ID සහ Password එක MT5 වෙත ඇතුළත් කිරීම.", "yt": "How to open free demo account on MT5", "note_concept": "Demo Account (Trial Account) එකක් යනු සැබෑ මුදල් නැතිව, සැබෑ Market මිල ගණන් සමග පුහුණු වීමට නොමිලේ ලබාදෙන Virtual සල්ලි සහිත ගිණුමකි.", "note_rules": "1. FundingPips Trial, FTMO Free Trial හෝ Broker කෙනෙකුගේ $5,000 නොමිලේ Demo Account එකක් Open කරගන්න. 2. එහි ලැබෙන Login ID, Password සහ Server එක MT5 හි File -> Login to Trade Account වෙත ඇතුළත් කරන්න. 3. සැබෑ මුදල් දැමීම සපුරා තහනම්ය.", "note_example": "MT5 හි යට Balance එක $5,000.00 ලෙස නිල් පාටින් දිස්වන්නේ නම් ඔබේ Demo ගිණුම සාර්ථකව සම්බන්ධ වී ඇත."}, {"id": "T06", "title": "MT5 හි Market Watch වෙත EURUSD සහ XAUUSD එක් කර ගැනීම", "desc": "MT5 හි Ctrl+U (Symbols) වෙත ගොස් EURUSD සහ Metals යටතේ ඇති XAUUSD තෝරා Chart Window Open කර ගැනීම සහ Lot Size එක 0.01 ලෙස සකසා ගැනීම.", "yt": "How to add XAUUSD Gold and place demo trade on MT5", "note_concept": "MT5 හි Default ලෙස Gold (XAUUSD) නොපෙනේ. එය Market Watch ලැයිස්තුවට එක් කර Lot Size එක අවම අගය වන 0.01 ලෙස තබාගත යුතුය.", "note_rules": "1. MT5 හි Ctrl+U (Symbols) ඔබා 'Metals' ෆෝල්ඩරය ක්ලික් කර XAUUSD උඩ Double-click කරන්න (කහ පැහැ වේ). 2. EURUSD ද එක් කරන්න. 3. Market Watch එකේ XAUUSD උඩ Right click කර Chart Window දෙන්න. 4. Lot Size එක නිතරම 0.01 ලෙස තබන්න.", "note_example": "XAUUSD Chart එකේ වම් පස ඉහළින් ඇති One-Click Trading Box එකේ Lot Size එක 0.01 ලෙස සකස් කරගන්න."}]}, {"id": "S2", "title": "Stage 02: Trading Basics & Candlestick Anatomy (මූලික සංකල්ප සහ Candle එකක කොටස්)", "sub": "චාට් එකක් කියවීමට පෙර අනිවාර්යයෙන්ම දැනගත යුතු මූලික භාෂාව සහ එක Candle එකක් හැදෙන ආකාරය.", "items": [{"id": "T07", "title": "Forex Pair එකක් (EURUSD) සහ Gold (XAUUSD) වැඩ කරන ආකාරය", "desc": "Base Currency vs Quote Currency යනු කුමක්ද සහ මිල ඉහළ යන විට Buy කිරීමෙන්ද, මිල පහළ යන විට Sell කිරීමෙන්ද ලාභ ලැබෙන ආකාරය තේරුම් ගැනීම.", "yt": "What is Forex trading Basics Sinhala / English", "note_concept": "Forex යනු මුදල් යුගල හුවමාරුවයි. EURUSD යනු Euro (පළමු මුදල - Base) සහ USD (දෙවන මුදල - Quote) අතර අනුපාතයයි. Gold (XAUUSD) යනු රත්රන් අවුන්සයක මිල ඩොලර් වලින් දැක්වීමයි.", "note_rules": "1. මිල ඉහළ යයි කියා සිතන විට BUY කර ඉහළදී විකිණීමෙන් ලාභ ලබයි. 2. මිල පහළ යයි කියා සිතන විට SELL කර පහළදී ආවරණය කිරීමෙන් ලාභ ලබයි. 3. දෙපැත්තටම ලාභ ලැබිය හැකි වෙළඳපොළකි.", "note_example": "Gold මිල 4,100 සිට 4,120 ට නගින විට Buy කළ අය ලාභ ලබයි. 4,120 සිට 4,100 ට බහින විට Sell කළ අය ලාභ ලබයි."}, {"id": "T08", "title": "Pip එකක් (Pips) සහ Points ගණනය කරන ආකාරය", "desc": "EURUSD හි 4 වන දශමස්ථානය (0.0001 = 1 Pip) සහ Gold (XAUUSD) හි $1.00 ක වෙනසක් (උදා: 4100 සිට 4101 ට = 10 Pips) ගණනය කරන හැටි.", "yt": "What is a Pip in Forex and Gold XAUUSD", "note_concept": "Pip (Percentage in Point) යනු මිලක සිදුවන කුඩාම ඒකක වෙනසයි. ලාභය හෝ පාඩුව මනින්නේ Pips වලිනි.", "note_rules": "1. EURUSD හි 4 වන දශමස්ථානය Pip 1කි (උදා: 1.1150 සිට 1.1151 ට යාම = 1 Pip, 1.1150 සිට 1.1160 ට = 10 Pips). 2. Gold (XAUUSD) හි $0.10 වෙනසක් = 1 Pip වේ. $1.00 ක වෙනසක් (උදා: 4,110 සිට 4,111 ට) = 10 Pips වේ.", "note_example": "Gold 4,111.50 සිට 4,090.00 ට වැටුණහොත් ($21.50 ක වෙනසක්): 21.50 x 10 = Pips 215ක දැවැන්ත Move එකකි!"}, {"id": "T09", "title": "Lot Size (0.01 Micro Lot) සහ අවදානම ගණනය කිරීම", "desc": "0.01 Lot එකකින් Trade එකක් දැමූ විට Pips 10ක් ගියොත් ලැබෙන/පාඩු වන මුදල ($1.00) සහ 1.00 Standard Lot එකක අවදානම තේරුම් ගැනීම.", "yt": "Lot size explained in Forex and Gold trading", "note_concept": "Lot Size යනු ඔබ වෙළඳපොළට දමන ගනුදෙනු ප්‍රමාණයයි (Volume). ගිණුමේ ප්‍රමාණය අනුව අවදානම පාලනය කරන්නේ Lot Size එකෙනි.", "note_rules": "1. 0.01 Lot (Micro) = Pip 1කට ශත 10කි ($0.10). 2. 0.10 Lot (Mini) = Pip 1කට $1.00 කි. 3. 1.00 Lot (Standard) = Pip 1කට $10.00 කි. 4. $5,000 Demo ගිණුමකට ආරම්භයේදී භාවිතා කළ යුත්තේ 0.01 Lot පමණි!", "note_example": "0.01 Lot එකෙන් Gold වල Pips 100ක් ගියහොත් ලැබෙන ලාභය: 100 x $0.10 = $10.00 කි. 0.10 දැමුවහොත් $100කි, නමුත් වැරදුනහොත් පාඩුවද ඒ සමාන වේ!"}, {"id": "T10", "title": "Bid Price, Ask Price සහ Spread එක යනු කුමක්ද?", "desc": "Buy සහ Sell මිල අතර පවතින පරතරය (Spread) නිසා Trade එකක් දැමූ සැණින් සුළු සෘණ අගයකින් (-$0.05) ආරම්භ වන්නේ ඇයිදැයි තේරුම් ගැනීම.", "yt": "Bid Ask and Spread in Forex explained", "note_concept": "Bid යනු ඔබ Sell කරන මිලයි. Ask යනු ඔබ Buy කරන මිලයි. Spread යනු ඒ දෙක අතර වෙනස වන අතර එය Broker ආයතනයේ ගාස්තුවයි (Commission).", "note_rules": "1. Ask Price එක නිතරම Bid Price එකට වඩා සුළු වශයෙන් ඉහළින් පවතී. 2. මේ නිසා ඔබ Buy එකක් දැමූ සැණින් Spread එක නිසා -$0.05 වැනි සුළු සෘණ අගයකින් ආරම්භ වේ. 3. Spread එක අඩු වෙලාවට (London/NY Sessions) Trade කිරීම වාසිදායකය.", "note_example": "EURUSD Bid 1.11580 සහ Ask 1.11585 නම්, Spread එක 0.5 Pip (ශත 5ක පරතරයක්) වේ."}, {"id": "T11", "title": "Candlestick එකක ප්‍රධාන කොටස් 4 (Open, High, Low, Close)", "desc": "කොළ (Bullish) සහ රතු (Bearish) Candle එකක් ආරම්භ වන තැන (Open), අවසන් වන තැන (Close), කඳ කොටස (Body) සහ දෙපස කූරු (Wicks / Shadows) හඳුනා ගැනීම.", "yt": "Japanese Candlesticks explained Open High Low Close Body Wick", "note_concept": "Candlestick (ඉටිපන්දම් ප්‍රස්ථාරය) මගින් නිශ්චිත කාලයක් තුළ (උදා: විනාඩි 30කදී) මිල ගමන් කළ ඉතිහාසය පෙන්වයි. එයට ප්‍රධාන අගයන් 4ක් (OHLC) ඇත.", "note_rules": "1. Open: Candle එක පටන් ගත් මිල. 2. Close: Candle එක අවසන් වූ මිල. 3. High: ගිය ඉහළම මිල (උඩ කූරේ කෙළවර). 4. Low: ගිය පහළම මිල (යට කූරේ කෙළවර). 5. Body: Open සහ Close අතර පිරුණු කඳ කොටසයි.", "note_example": "කොළ පැහැති Candle එකක Close අගය Open එකට වඩා ඉහළින් ඇත. රතු පැහැති Candle එකක Close අගය Open එකට වඩා පහළින් ඇත."}, {"id": "T12", "title": "Candle Body vs Wick වලින් කියවෙන බලය (Momentum & Rejection)", "desc": "විශාල Body එකකින් Buyers/Sellers ගේ ශක්තිය පෙන්වන ආකාරය සහ දිගු Wick එකකින් මිල ප්‍රතික්ෂේප වීම (Price Rejection) පෙන්වන ආකාරය.", "yt": "How to read candlestick wicks and bodies price action", "note_concept": "Candle එකක Body එකෙන් පෙන්වන්නේ Buyers හෝ Sellers ලා සතු සැබෑ බලයයි (Momentum). දිගු Wick එකකින් (කූරකින්) පෙන්වන්නේ මිල ප්‍රතික්ෂේප වීමයි (Price Rejection).", "note_rules": "1. දිගු කොළ Body එකක් = Buyers ලාගේ පූර්ණ ආධිපත්‍යය. 2. දිගු රතු Body එකක් = Sellers ලාගේ පූර්ණ ආධිපත්‍යය. 3. පහළට ගොස් දිගු යට Wick එකක් හැදීම = පහළින් Buyers ලා මිල උඩට තල්ලු කිරීම (Bullish Rejection).", "note_example": "ප්‍රධාන Support ඉරක් මත දිගු යට Wick එකක් හැදුණහොත් මිල තවදුරටත් පහළ යාම ප්‍රතික්ෂේප වී ඉහළට හැරීමට සූදානම් වේ."}, {"id": "T13", "title": "ප්‍රධාන Trading Sessions 3 (Asian, London, New York)", "desc": "ලංකාවේ වේලාවෙන් Asian Session (උදේ), London Session (දවල් 1:00 PM - 4:30 PM) සහ New York Session (හවස 6:00 PM - 9:30 PM) ක්‍රියාත්මක වන වේලාවන් සහ Volume වැඩිම වේලාවන්.", "yt": "Forex trading sessions Asian London New York time", "note_concept": "ලෝක වෙළඳපොළ පැය 24 පුරා ක්‍රියාත්මක වුවද ලොකු බැංකු සහ ආයෝජකයින් වෙළඳාම් කරන්නේ ප්‍රධාන Sessions 3කය. අනෙක් වෙලාවට මිල චලනය ඉතා අඩුය.", "note_rules": "1. Asian Session (උදේ 5:30 - දවල් 1:00 SL Time): චලනය අඩුය. 2. London Session (දවල් 1:00 - හවස 4:30 SL Time): විශාල Volume එකක් ආරම්භ වේ. 3. New York Session (හවස 6:00 - රාත්‍රී 10:00 SL Time): ඉහළම Volume සහ වේගවත් Moves ලැබේ.", "note_example": "දවල් 12:30 සිට හවස 4:30 දක්වා හෝ හවස 6:00 සිට 9:00 දක්වා කාලය තුළ Gold (XAUUSD) වෙළඳාම් කිරීමෙන් පැයකින් දෙකකින් පැහැදිලි Moves ලැබේ."}]}, {"id": "S3", "title": "Stage 03: Timeframes, Market Structure & Support/Resistance (කාල රාමු සහ ප්‍රධාන මට්ටම්)", "sub": "ඉහළ Timeframe එකේ සිට පහළ Timeframe එකට චාට් එක බලන ආකාරය සහ නිවැරදිව Support / Resistance ඉරි ඇඳීම.", "items": [{"id": "T14", "title": "Timeframes (4H, 1H, 30m, 15m) අතර සම්බන්ධය", "desc": "විනාඩි 15 (15m) Candles 2ක් එකතු වී එක 30m Candle එකක්ද, 30m Candles 2ක් එකතු වී එක පැයේ (1H) Candle එකක්ද හැදෙන ආකාරය (Multi-Timeframe අවබෝධය).", "yt": "Multi timeframe analysis Forex 4H 1H 30m 15m", "note_concept": "Multi-Timeframe Analysis යනු විශාල කාල රාමුවේ සිට කුඩා කාල රාමුවට චාට් එක බැලීමයි (Top-Down Analysis).", "note_rules": "1. 4H / 1H: ප්‍රධාන Trend එක සහ ලොකු සීමා හඳුනා ගැනීමට. 2. 30m: ප්‍රධාන Support / Resistance ඉරි සහ Breakouts දැකීමට. 3. 15m: පාර මැද ඇති බාධක (Speed bumps) සහ නිවැරදි Entry ලබා ගැනීමට.", "note_example": "4H එකෙන් Trend එක Down නම්, 30m සහ 15m වලදී Sell අවස්ථා පමණක් සෙවීමෙන් Trade එකක් දිනීමේ සම්භාවිතාව 80% ඉක්මවයි."}, {"id": "T15", "title": "Market Structure 3: Uptrend, Downtrend සහ Range (Consolidation)", "desc": "Uptrend (Higher Highs - HH / Higher Lows - HL), Downtrend (Lower Highs - LH / Lower Lows - LL) සහ මිල එකම කොටුවක හිරවී තිබෙන Range එකක් හඳුනා ගැනීම.", "yt": "Market structure Uptrend Downtrend Consolidation HH HL LH LL", "note_concept": "Market එක ගමන් කරන්නේ ආකාර 3කටය: Uptrend, Downtrend සහ Range (Consolidation).", "note_rules": "1. Uptrend: පඩිපෙළක් මෙන් ඉහළට යයි (Higher Highs - HH සහ Higher Lows - HL සාදයි). 2. Downtrend: පහළට බසියි (Lower Highs - LH සහ Lower Lows - LL සාදයි). 3. Range: ඉහළට හෝ පහළට නොගොස් එකම සීමාවක (කොටුවක) හිරවී පවතී.", "note_example": "මිල එක දිගට අලුත් Highs හදමින් ඉහළ නගින්නේ නම් එය Uptrend එකකි. කිසිවිටෙක Uptrend එකකට එරෙහිව Sell නොකරන්න."}, {"id": "T16", "title": "Support (තට්ටුව) සහ Resistance (වහලය) නිවැරදිව හඳුනා ගැනීම", "desc": "මිල පහළට විත් නැවතී ඉහළට හැරෙන තට්ටුව (Support) සහ මිල ඉහළට ගොස් වැදී පහළට හැරෙන වහලය (Resistance) 4H / 1H / 30m චාට් මත ඇඳීම.", "yt": "How to draw Support and Resistance zones properly", "note_concept": "Support යනු මිල වැටී නතර වන තට්ටුවයි (Floor). Resistance යනු මිල ඉහළ ගොස් වැදී ආපසු හැරෙන වහලයයි (Ceiling).", "note_rules": "1. තනි ඉරක් වෙනුවට කලාපයක් (Zone / Box එකක්) ලෙස අඳින්න. 2. අවම වශයෙන් මිල දෙවතාවක් හෝ තුන්වතාවක් හැරුණු තැන් සම්බන්ධ කර අඳින්න. 3. 30m සහ 1H Timeframe වල අඳින ඉරි වඩාත් විශ්වාසදායකය.", "note_example": "Gold 4,132 සහ 4,142 අතරින් තුන්වතාවක් පහළට හැරුණේ නම්, 4,132 - 4,142 යනු Major Resistance Zone එකකි."}, {"id": "T17", "title": "Support එකක් කැඩුණු පසු Resistance බවට පත්වීම (Role Reversal / Flip Zone)", "desc": "ශක්තිමත් තට්ටුවක් (Support) කඩාගෙන පහළට ගිය පසු, මිල නැවත උඩට පැමිණ එම ඉරේම වැදී වහලයක් (Resistance) ලෙස ක්‍රියා කරන ආකාරය.", "yt": "Support turns into resistance role reversal trading", "note_concept": "Role Reversal (Flip Zone) යනු පෙර පැවති Support එකක් කැඩී ගිය පසු එය අලුත් Resistance එකක් බවට පත්වීමයි. (වහලය කැඩී උඩට ගිය විට එය තට්ටුවක් බවට පත්වේ).", "note_rules": "1. මිල ශක්තිමත් Support එකක් කඩාගෙන පහළට ගිය විට කලබල නොවන්න. 2. මිල නැවත එම ඉර දෙසට පැමිණ (Retest / Pullback) පහළට හැරෙන විට Sell කිරීම ඉහළම ප්‍රතිඵල ලබා දෙයි.", "note_example": "Support තට්ටුව වූ 4,114 කඩාගෙන 4,107 ට වැටුණු පසු, නැවත 4,114 දක්වා උඩට විත් වැදී පහළට හැරෙද්දී Sell කිරීම Role Reversal Entry එකකි."}, {"id": "T18", "title": "'No-Trade Box' නීතිය (කොටුවක් මැද Trade නොගැනීම)", "desc": "Support ඉර සහ Resistance ඉර අතර මැද කලාපයේදී කිසිම විටෙක Buy හෝ Sell නොකර, මිල ප්‍රධාන මට්ටමකට එනතුරු ඉවසා සිටීම.", "yt": "How to trade consolidation range breakout", "note_concept": "No-Trade Box නීතිය: Resistance එක සහ Support එක අතර මැද කලාපයේදී කිසිම විටෙක Trade නොගත යුතුය. 90%ක් දෙනා මුදල් නැති කරගන්නේ මේ කොටුව ඇතුළේදීය.", "note_rules": "1. මැදදී මිල දෙපැත්තටම පැද්දේ (Chop / Fakeout). 2. මිල ඉහළ වහලයට හෝ පහළ තට්ටුවට එනතුරු ඉවසීමෙන් බලා සිටින්න. 3. කොටුවෙන් එළියට Breakout එකක් වන තුරු කිසිදු Trade එකක් නොදමන්න.", "note_example": "4,114 සහ 4,132 අතර කොටුව තුළ Trade නොදා, 4,114 කඩාගෙන එළියට පනින තුරු අත් බැඳගෙන බලා සිටීම."}]}, {"id": "S4", "title": "Stage 04: Smart Money Concepts — BOS, CHoCH, Order Blocks (OB) & FVG (EURUSD පුහුණුව)", "sub": "Mahesh Sir ඉගෙන ගත් පරිදිම EURUSD (4H / 1H) චාට් එක භාවිතා කර බැංකු Trade කරන Order Blocks සහ Fair Value Gaps නිවැරදිව සලකුණු කිරීම.", "items": [{"id": "T19", "title": "BOS (Break of Structure) හඳුනා ගැනීම", "desc": "Trend එකක් යන දිශාවටම පෙර පැවති High එක (Uptrend එකකදී) හෝ Low එක (Downtrend එකකදී) Candle Body එකකින් කඩාගෙන යාම.", "yt": "Break of Structure BOS Smart Money Concepts explained", "note_concept": "BOS (Break of Structure) යනු පවතින Trend එකේ දිශාවටම පෙර පැවති ප්‍රධාන High හෝ Low එක Candle Body එකකින් කඩාගෙන ඉදිරියට යාමයි.", "note_rules": "1. Uptrend එකකදී පෙර High එක කඩාගෙන උඩින් Close වීම Bullish BOS වේ. 2. Downtrend එකකදී පෙර Low එක කඩාගෙන යටින් Close වීම Bearish BOS වේ. 3. අනිවාර්යයෙන්ම Candle Body එක Close විය යුතුය (Wick පමණක් ප්‍රමාණවත් නොවේ).", "note_example": "EURUSD 1H Chart එකේ පෙර Low එක වූ 1.1150 කඩාගෙන 1.1140 ට රතු Candle Body එකකින් වැසුණහොත් එය Bearish BOS එකකි (Trend එක පහළටම යයි)."}, {"id": "T20", "title": "CHoCH (Change of Character) හඳුනා ගැනීම", "desc": "මිල ගමන් කළ දිශාව වෙනස් වී Trend එක හැරෙන පළමු සංඥාව (Uptrend එකක් Downtrend එකකට හැරීම හෝ අනෙක් පැත්ත) හඳුනා ගැනීම.", "yt": "BOS vs CHoCH Change of Character SMC tutorial", "note_concept": "CHoCH (Change of Character) යනු වෙළඳපොළේ Trend එක වෙනස් වන පළමු අනතුරු ඇඟවීමේ සංඥාවයි (Reversal Signal).", "note_rules": "1. Uptrend එකකදී අලුත් High එකක් හැදීමට අපොහොසත් වී, අවසාන Higher Low එක කඩාගෙන පහළට ගිය විට Uptrend එක අවසන් වී Downtrend එකක් පටන් ගනී (Bearish CHoCH). 2. මෙය Trend එක හැරෙන බව කල්තියා කියයි.", "note_example": "ඉහළ නගිමින් තිබූ EURUSD එක එකවරම පෙර Low එක කඩාගෙන පහළට Body Close වුවහොත් එය CHoCH එකකි. එතැන් සිට Buy සෙවීම නවත්වා Sell සොයන්න."}, {"id": "T21", "title": "Fair Value Gap (FVG / Imbalance) නිවැරදිව ඇඳීම", "desc": "වේගවත් චලනයකදී Candles 3ක් අතර පළමු Candle එකේ Wick එකත් 3 වන Candle එකේ Wick එකත් අතර ඉතිරි වන හිස් පරතරය (Imbalance) කොටුවකින් ලකුණු කිරීම.", "yt": "What is Fair Value Gap FVG Imbalance ICT SMC", "note_concept": "Fair Value Gap (FVG / Imbalance) යනු විශාල බැංකු ආයෝජනයක් නිසා එකවර මිල වේගයෙන් ඇදී යාමේදී සෑදෙන හිස් ඉඩකි. වෙළඳපොළ නිතරම මේ හිඩැස පිරවීමට නැවත පැමිණේ.", "note_rules": "1. අනුක්‍රමික Candles 3ක් සලකන්න. 2. පළමු Candle එකේ Wick එක සහ තුන්වන Candle එකේ Wick එක එකිනෙක ස්පර්ශ නොවී මැද ඉතිරි වන හිස් පරතරය FVG වේ. 3. මිල මේ කොටුව පිරවූ පසු නැවත ප්‍රධාන දිශාවට ගමන් කරයි.", "note_example": "විශාල රතු Candle එකක මැද ඇති හිස් ඉඩ Rectangle එකකින් ලකුණු කරන්න. මිල නැවත එම කොටුවට ඇතුල් වූ සැණින් Sell Confirmation සොයන්න."}, {"id": "T22", "title": "Order Block (Bullish OB & Bearish OB) නිවැරදිව හඳුනා ගැනීම", "desc": "BOS එකක් සහ FVG එකක් සෑදීමට පෙර අවසානයට හැදුණු ප්‍රතිවිරුද්ධ Candle එක (Buy යාමට පෙර අවසන් රතු Candle එක / Sell යාමට පෙර අවසන් කොළ Candle එක) ලකුණු කිරීම.", "yt": "How to identify valid Order Blocks with FVG", "note_concept": "Order Block (OB) යනු මහ බැංකු සහ ආයතන විශාල Orders ප්‍රමාණයක් තබා වෙළඳපොළ තල්ලු කළ ආරම්භක ස්ථානයයි (Institutional Footprint).", "note_rules": "1. Bullish OB: වේගවත් ඉහළ යාමකට සහ BOS එකකට පෙර අවසානයට හැදුණු රතු Candle එක. 2. Bearish OB: වේගවත් පහළ වැටීමකට පෙර අවසානයට හැදුණු කොළ Candle එක. 3. මිල නැවත මෙම Candle එක වෙත ආපසු පැමිණි විට දැවැන්ත ප්‍රතික්‍රියාවක් දක්වයි.", "note_example": "EURUSD 4H එකේ විශාල වැටීමට පෙර තිබූ අවසන් කොළ Candle එක Bearish OB එකක් ලෙස සලකුණු කර තබාගන්න."}, {"id": "T23", "title": "Valid High-Probability OB එකක් තෝරා ගැනීම (OB + FVG සංයෝගය)", "desc": "සෑම Candle එකක්ම OB එකක් ලෙස නොගෙන, අනිවාර්යයෙන්ම FVG (Imbalance) එකක් සහ Structure Break (BOS) එකක් සහිත 4H සහ 1H Order Blocks පමණක් තෝරා ගැනීම.", "yt": "High probability Order Block rules with FVG", "note_concept": "චාට් එකේ දකින හැම Candle එකක්ම Order Block එකක් නොවේ. 100%ක් සාර්ථක High-Probability OB එකක් තෝරාගැනීමට රන් කොන්දේසි 3ක් තිබිය යුතුය.", "note_rules": "1. එම OB එකෙන් පසු අනිවාර්යයෙන්ම BOS (Break of Structure) එකක් සිදුවී තිබිය යුතුය. 2. එම OB එකට ඉදිරියෙන් පැහැදිලි FVG (Imbalance) එකක් තිබිය යුතුය. 3. 4H සහ 1H Timeframe වල OB වඩාත්ම බලවත්ය.", "note_example": "BOS එකක් සහ FVG එකක් නැති OB එකක් යනු සාමාන්‍ය Candle එකක් පමණි. එවැනි තැන් වල Trade නොගන්න."}, {"id": "T24", "title": "EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන Order Blocks ලකුණු කර පුහුණු වීම", "desc": "EURUSD 4H සහ 1H Chart එක Open කර දැනට මිලට ඉහළින් ඇති Bearish OB+FVG සහ පහළින් ඇති Bullish OB+FVG කොටු ඇඳ Mahesh Sir ට පෙන්වීම.", "yt": "Top down analysis EURUSD 4H 1H Order Block", "note_concept": "EURUSD 4H සහ 1H Top-Down Mapping: EURUSD චාට් එක දිහා බලද්දී එකම තැනක Trade නොදා, ඉහළින් ඇති ප්‍රධාන Bearish OB එක සහ පහළින් ඇති Bullish OB එක ලකුණු කර බලා සිටීම.", "note_rules": "1. EURUSD 4H චාට් එක Open කරන්න. 2. දැනට මිලට ඉහළින් ඇති Bearish OB+FVG කොටුව (උදා: 1.1260) රතු පාටින් ලකුණු කරන්න. 3. පහළින් ඇති Bullish OB+FVG කොටුව (උදා: 1.1110) කොළ පාටින් ලකුණු කරන්න. 4. මිල එම කොටුවකට ඇතුල් වන තුරු සති ගණනක් වුවද ඉවසන්න.", "note_example": "EURUSD ප්‍රධාන 4H OB එකකට පැමිණි විට 15m එකට මාරු වී CHoCH එකක් බලා 1:5කට වඩා වැඩි Risk-to-Reward Trade එකක් ලබාගත හැක."}]}, {"id": "S5", "title": "Stage 05: Gold (XAUUSD) 'Market Fluidity' & Clean Traffic Strategy (Raja Banks ක්‍රමවේදය)", "sub": "EURUSD හි ප්‍රධාන OB වලට එනතුරු බලා සිටින අතරතුර, දිනපතා Gold (XAUUSD 30m / 15m) හි පැහැදිලි Moves අල්ලා ගන්නා සරල සහ ප්‍රබල ක්‍රමවේදය.", "items": [{"id": "T25", "title": "XAUUSD (30m) Chart එකේ ප්‍රධාන ඉරි 3 (Resistance, Minor Support, Key Target) ඇඳීම", "desc": "30m Chart එකේ මිල දැනට හිරවී සිටින Resistance වහලය, Support තට්ටුව සහ ඊළඟ ප්‍රධාන ඉලක්කය ඉරි 3කින් පිරිසිදුව ඇඳ ගැනීම.", "yt": "Raja Banks support and resistance 30m chart gold", "note_concept": "Raja Banks ගේ ප්‍රධාන ක්‍රමවේදය: Gold (XAUUSD 30m) චාට් එක මත කිසිදු Indicator එකක් නැතිව ප්‍රධාන ඉරි 3ක් පමණක් ඇඳ වෙළඳපොළ සරල කරගැනීම.", "note_rules": "1. Major Resistance Zone (ඉහළ වහලය): 30m එකේ මිල වැදී පහළට ආපු ඉහළම සීමාව. 2. Current Minor Support (වත්මන් තට්ටුව): දැනට මිල නතර වී ඇති තට්ටුව. 3. Key Target Support (ඊළඟ ඉලක්කය): මිල කඩාගෙන වැටුණහොත් යා හැකි ඊළඟ ප්‍රධාන තට්ටුව.", "note_example": "අද අප ඇඳි පරිදි: 4,132 - 4,142 (Resistance), 4,114 (Minor Support), 4,078 (Clean Traffic Target)."}, {"id": "T26", "title": "'Clean Traffic' (වම් පැත්තේ බාධා නැති පිරිසිදු Candles) හඳුනා ගැනීම", "desc": "වම් පැත්තේ එක දිගට වැටුණු හෝ ඉහළ ගිය විශාල Candles තිබෙන කලාප (හිස් ලිෆ්ට් කූඩුවක් වැනි කලාප) හඳුනා ගැනීම — මිල නැවත එම කලාපයට ඇතුල් වූ විට වේගයෙන් Mirror වන බව තේරුම් ගැනීම.", "yt": "Raja Banks clean traffic mirror candles explained", "note_concept": "Clean Traffic (කණ්ණාඩි පරාවර්තනය - Mirror Candles): වම් පැත්තේ එක දිගට ගිය විශාල Candles තිබේ නම්, දකුණු පැත්තේද එම හිස් ඉඩ කිසිදු බාධාවකින් තොරව වේගයෙන් පිරවේ (හිස් ලිෆ්ට් කූඩුවක් වැනි).", "note_rules": "1. වම් පැත්ත බලන්න (Look to the left). 2. වම් පැත්තේ රතු/කොළ පොඩි පොඩි පැටලිලි නැති තනි දිගු Candles ඇත්නම් එය Clean Traffic වේ. 3. සීමාව කැඩුණු සැණින් එම Clean Traffic එක අවසන් වන තෙක් එක හුස්මට Trade එක දුවයි.", "note_example": "උදේ 4,078 සිට 4,114 දක්වා විශාල කොළ Candles 2කින් ගියේ නම්, දවල් 4,114 කැඩුණු විට 4,078 දක්වා කිසිම බාධාවක් නැති Clean Traffic Sell එකක් ලැබේ."}, {"id": "T27", "title": "නීතිය 01: 30m Candle BODY Close වන තුරු ඉවසීම (Wick Fakeout වලින් බේරීම)", "desc": "කවදාවත් Candle එකක් දුවන අතරතුරේ ඉරක ගෑවුණු පමණින් Trade නොදමා, විනාඩි 30 අවසන් වී Candle එකේ කඳ (Body එක) ඉරෙන් එළියේ Close වන තුරුම බලා සිටීම.", "yt": "Wait for candle body close breakout trading rule", "note_concept": "රන් නීතිය 01: 30m Candle BODY Close වන තුරු ඉවසීම (Wick Fakeout වලින් බේරීම). 90%ක් දෙනා පරදින්නේ Candle එක දුවන අතරතුරේ කලබලයෙන් Trade දමන නිසයි.", "note_rules": "1. Candle එකේ Timer එක 00:00 වන තුරු ඉවසන්න. 2. ඉරෙන් එළියේ වැසෙන්නේ Wick එකක් (කූරක්) පමණක් නම් එය Fakeout (උගුලකි), Trade නොගන්න. 3. Candle එකේ කඳ (Body එක) ඉරෙන් එළියේ සම්පූර්ණයෙන් Close වූ විට පමණක් Breakout එක තහවුරු වේ.", "note_example": "11:30 - 12:00 Candle එක 4,114 කහ ඉරෙන් පහළට 4,112 දී Body Close වූ පසු පමණක් Sell පිඹුරුපත් සකසන්න."}, {"id": "T28", "title": "නීතිය 02: අලුත් Candle එකේ 'Top Wick / Bottom Wick' එක හැදෙන තුරු ඉවසීම", "desc": "Breakout Candle එක Close වූ පසු, ඊළඟ අලුත් 30m Candle එක පටන් ගත් සැණින් Sell/Buy නොකර, එය මුලින්ම කැඩුණු ඉර දෙසට පොඩ්ඩක් ගොස් Wick එක (කූර) හදා ආපහු හැරෙන විට Entry ගැනීම.", "yt": "Raja Banks wick creation impulse entry tutorial", "note_concept": "රන් නීතිය 02: New Candle Wick Creation එක එනතුරු තත්පර කිහිපයක් ඉවසීම. අලුත් Candle එකක් පටන් ගත් සැණින් පහළට වැටෙන්නේ නැත.", "note_rules": "1. අලුත් 30m Candle එක පටන් ගත් පසු එය මුලින්ම ප්‍රතිවිරුද්ධ දිශාවට සුළු වශයෙන් ගමන් කර Wick එක (කූර) හදාගනී. 2. Sell එකකදී එය මුලින්ම කැඩුණු ඉර දෙසට උඩට ගොස් Top Wick එක සාදයි. 3. ඉන්පසු ආපසු හැරී පෙර Candle එකේ Low එක කඩද්දී SELL ඔබන්න!", "note_example": "12:00 අලුත් Candle එක 4,112 සිට 4,114.60 දක්වා උඩට විත් Top Wick එක සාදා, ආපසු හැරී 4,111.50 කඩද්දී Sell එක ගැනීම."}, {"id": "T29", "title": "නීතිය 03: 15m Chart එකෙන් 'Speed Bumps' (Minor Traffic) පරීක්ෂා කිරීම", "desc": "30m Clean Traffic එකක් දිගේ මිල යන විට, 15m Timeframe එකට මාරු වී වම් පැත්තේ පොඩි රතු/කොළ Candle එකක බාධකයක් (Speed Bump) තිබේදැයි බලා එතනදී ආරක්ෂා වීම.", "yt": "15m timeframe refinement traffic zones", "note_concept": "15m Speed Bumps (Minor Traffic) පරීක්ෂා කිරීම: 30m Clean Traffic එකක් මැද 15m Timeframe එකේ ඇති පොඩි බාධක කල්තියා හඳුනා ගැනීම.", "note_rules": "1. 30m එකේ Clean පාරක් පෙනෙන විට 15m එකට මාරු වී වම් පස බලන්න. 2. පාර මැද පොඩි ප්‍රතිවිරුද්ධ Candle එකක් තිබේදැයි බලන්න (Speed bump). 3. මිල එම ස්ථානයට පැමිණි විට Trade එක Break-Even (Risk-Free) කරන්න.", "note_example": "අද අප දුටු 4,104.50 හි තිබූ 15m රතු Candle එක Speed Bump එකක් වූ අතර, මිල එතැනට ආ සැණින් Break-Even කර ආරක්ෂා වීම."}, {"id": "T30", "title": "Realistic Take Profit (TP) දැමීම (අවසාන ඉරට පොඩ්ඩක් මෙහායින් TP ගැනීම)", "desc": "කෑදර නොවී, වම් පැත්තේ ප්‍රධාන Support/Resistance ඉරට Pips 20–30ක් මෙහායින් ආරක්ෂිතව Take Profit (TP) සකසා ගැනීම.", "yt": "Where to set Take Profit support and resistance", "note_concept": "Realistic Take Profit (TP) දැමීම: කවදාවත් අන්තිම සතය දක්වා කෑදර නොවී, ප්‍රධාන Support ඉරට Pips 20-30ක් මෙහායින් ලාභය සාක්කුවට ගැනීම.", "note_rules": "1. විශාල බැංකු ප්‍රධාන ඉරට මදක් මෙහායින් තම ලාභ ලබා ගැනීම අරඹයි (Front-running). 2. Key Support එක 4,078 නම් ඔබේ TP එක 4,090 හෝ 4,085 වැනි ආරක්ෂිත තැනක තබන්න. 3. හරියටම ඉර ළඟට එනතුරු බලා සිටියහොත් මිල ආපසු හැරී ලාභය අහිමි විය හැක.", "note_example": "අද අප TP එක 4,078 වෙනුවට 4,090 හි තැබූ නිසා, මිල 4,089.49 ට පැමිණ TP වැදී ක්ෂණිකව 4,095 දක්වා ආපසු උඩට පැන්නේය!"}]}, {"id": "S6", "title": "Stage 06: Risk Management & Practical Tasks (මුදල් පාලනය සහ ප්‍රායෝගික අභ්‍යාස)", "sub": "ඔබ ඉගෙන ගත් දැනුම Demo Account එක තුළ ප්‍රායෝගිකව ක්‍රියාත්මක කර Mahesh Sir ලවා පරීක්ෂා කරගන්නා අදියර.", "items": [{"id": "T31", "title": "Stop Loss (S/L) අනිවාර්ය නීතිය", "desc": "Stop Loss එකක් නැතිව කිසිම දිනක එකම එක Trade එකක්වත් නොදැමීම සහ Breakout Candle එකේ අනෙක් පස Wick එකට පිටතින් නිවැරදිව SL තැබීම.", "yt": "How to place Stop Loss correctly in Forex and Gold", "note_concept": "Stop Loss (SL) යනු ඔබේ ගිණුම විනාශ නොවී ආරක්ෂා කරන ජීවිතාරක්ෂක පටියයි (Seatbelt). SL නොමැතිව Trade දැමීම යනු Break නැති වාහනයක් පැදවීමකි.", "note_rules": "1. Trade එකක් දැමූ සැණින්ම SL එක දමන්න. 2. Breakout එකක් ගත් පසු SL එක තැබිය යුත්තේ කඩන ලද Candle එකේ ඉහළ Wick එකට සුළු වශයෙන් ඔබ්බෙනි. 3. Trade එක වැරදුනහොත් පාඩුව $4 - $5 කට සීමා වේ.", "note_example": "Entry එක 4,111.55 නම්, SL එක 4,116.00 හි තැබීමෙන් උපරිම අවදානම $4.45 (0.09%) කට පමණක් සීමා විය."}, {"id": "T32", "title": "Break-Even (B/E) කර Trade එක 100% Risk-Free කරන ආකාරය", "desc": "Trade එක පළමු කඩඉම (15m Speed Bump එක) ළඟට ලාභ සහිතව ගිය සැණින්, Stop Loss ඉර Entry මිල ළඟටම ගෙනැවිත් පාඩු වීමේ අවදානම 0% කිරීම.", "yt": "How to move Stop Loss to Break Even MT5", "note_concept": "Break-Even (Risk-Free) කිරීම: Trade එක අප සිතූ පැත්තට සාර්ථකව ගමන් කරන විට Stop Loss එක Entry මිල ළඟට ගෙනැවිත් පාඩු වීමේ අවදානම 0% කිරීම.", "note_rules": "1. මිල Pips 60-80ක් ලාභ පැත්තට ගිය විට SL ඉර Entry එකට (හෝ ශත 50ක් ඉදිරියෙන්) ගෙන එන්න. 2. ඉන්පසු කුමන දේ සිදු වුවද ඔබේ සත පහක්වත් අහිමි නොවේ. 3. මනසට 100%ක පූර්ණ නිදහසක් ලැබේ.", "note_example": "4,111.55 Sell එක 4,104 දක්වා ගිය විට, SL එක 4,116 සිට 4,111.00 දක්වා ගෙන ඒමෙන් Trade එක 100%ක් Risk-Free විය."}, {"id": "T33", "title": "Trailing Stop Loss (පඩියෙන් පඩිය ලාභය Lock කිරීම)", "desc": "මිල තවදුරටත් අපේ දිශාවටම කඩාගෙන යන විට Stop Loss එක පඩියෙන් පඩිය ඉදිරියට ගෙනැවිත් ලැබුණු ලාභය ආරක්ෂිතව Lock කර ගැනීම.", "yt": "How to trail stop loss behind candle highs and lows", "note_concept": "Trailing Stop Loss යනු මිල අපේ දිශාවට තව තවත් ගමන් කරන විට, ලාභය අගුළු දැමීම (Lock කිරීම) සඳහා SL එක පඩියෙන් පඩිය ඉදිරියට ගෙන ඒමයි.", "note_rules": "1. මිල අලුත් Candle එකක් හදමින් පහළට යද්දී, SL එක පෙර Candle එකේ High එක පිටුපසට ගෙන එන්න. 2. වෙළඳපොළ එකවර ආපසු හැරුණද ස්ථිර ලාභයක් සාක්කුවට වැටේ. 3. කෑදර නොවී ලාභය සුරක්ෂිත කරයි.", "note_example": "මිල 4,096 ට පැමිණි විට SL එක 4,103.00 ට ගෙන ඒම නිසා අවම වශයෙන් $8.55ක ලාභයක් 100%ක්ම සාක්කුවේ Lock විය."}, {"id": "T34", "title": "0.5% - 1% Risk Rule සහ Risk-to-Reward (1:2 සිට 1:5 දක්වා)", "desc": "$5,000 ගිණුමක එක Trade එකකදී අවදානමට ලක් කරන උපරිම මුදල ($5 - $25) සහ අවදානම මෙන් 2-5 ගුණයක ලාභයක් ඉලක්ක කිරීම.", "yt": "Risk to reward ratio and 1 percent rule explained", "note_concept": "0.5% - 1% Risk Rule සහ Risk-to-Reward Ratio: වෘත්තීය Trader කෙනෙකු එක Trade එකකදී කිසිවිටෙක ගිණුමෙන් 1%කට වඩා අවදානමට ලක් නොකරයි.", "note_rules": "1. $5,000 ගිණුමක 1% යනු $50කි. ආරම්භයේදී 0.1% - 0.5% ($5 - $25) පමණක් Risk කරන්න. 2. අවදානම $5 නම් ඉලක්ක ලාභය $15 - $25ක් (1:3 සිට 1:5 දක්වා) විය යුතුය. 3. එවිට Trades 10න් 6ක් පැරදුනද ගිණුම විශාල ලාභයක පවතී.", "note_example": "අද අප ගත් Trade එක: Risk එක $4.45 | ලාභය $22.06 | Risk-to-Reward = 1:5 (අවදානම මෙන් පස් ගුණයක ලාභයක්!)."}, {"id": "T35", "title": "'One & Done' Sniper Rule (දවසකට එක පැහැදිලි Trade එකක් පමණයි!)", "desc": "දවසේ පළමු හොඳම Trade එකෙන් TP වැදුණු පසු කෑදරකමට තවත් Trades නොදමා එදාට Chart එක වසා දැමීම (Overtrading සහ Revenge Trading නැවැත්වීම).", "yt": "Overtrading and revenge trading psychology", "note_concept": "'One & Done' Sniper Rule: දවසකට එකම එක පැහැදිලි, ඉහළම ගුණාත්මකභාවයෙන් යුත් Trade එකක් පමණක් ගැනීම. TP හෝ SL වැදුණු සැණින් එදාට Trading අවසන් කිරීම.", "note_rules": "1. දිනූ පසු තව තව Trade දැමීමට සිතෙන්නේ Dopamine නිසාය (Greed). 2. පැරදුණු පසු වහාම තව Trade දැමීමට සිතෙන්නේ Revenge Trading නිසාය. 3. එක Trade එකකින් පසු Chart එක වසා දමා වෙනත් වැඩ වල නිරත වීම ලොකුම විනයයි.", "note_example": "අද දවල් 4,090 TP වැදුණු සැණින් Chart එක වැසීම. ඉන්පසු මිල තව පහළ ගියද, උඩ ගියද අපට කිසිදු අදාළත්වයක් නැත. දවස ජයග්‍රාහීව අවසන්ය."}, {"id": "T36", "title": "ප්‍රායෝගික අභ්‍යාසය 01: EURUSD 4H/1H Order Blocks + FVG ලකුණු කර පෙන්වීම", "desc": "TradingView හි EURUSD 4H සහ 1H Chart එකේ ප්‍රධාන OB + FVG කලාප ඇඳ Screenshot එකක් Mahesh Sir වෙත යැවීම.", "yt": "Practical task 1 EURUSD OB FVG chart", "note_concept": "ප්‍රායෝගික අභ්‍යාසය 01: TradingView හි EURUSD 4H සහ 1H Chart එක Open කර ප්‍රධාන Order Blocks (OB) සහ FVG කොටු ඇඳීම.", "note_rules": "1. ඉහළින් ඇති Bearish OB + FVG රතු කොටුවකින් අඳින්න. 2. පහළින් ඇති Bullish OB + FVG කොළ කොටුවකින් අඳින්න. 3. Screenshot එකක් ගෙන Mahesh Sir වෙත යොමු කර නිවැරදිදැයි පරීක්ෂා කරගන්න.", "note_example": "පෙර පාඩම් වල පෙන්වූ පරිදි EURUSD 1H Chart එකේ 1.1260 සහ 1.1110 කලාප ලකුණු කර පෙන්වීම."}, {"id": "T37", "title": "ප්‍රායෝගික අභ්‍යාසය 02: XAUUSD 30m ප්‍රධාන ඉරි 3 (Resistance, Support, Target) ඇඳ පෙන්වීම", "desc": "Gold (XAUUSD) 30m Chart එකේ ප්‍රධාන මට්ටම් 3 සහ Clean Traffic කලාප ලකුණු කර Screenshot එකක් Mahesh Sir වෙත යැවීම.", "yt": "Practical task 2 XAUUSD 30m levels", "note_concept": "ප්‍රායෝගික අභ්‍යාසය 02: Gold (XAUUSD 30m) Chart එක මත ප්‍රධාන මට්ටම් 3 සහ Clean Traffic කලාපය ලකුණු කර පෙන්වීම.", "note_rules": "1. Major Resistance Zone (රතු කොටුව). 2. Current Minor Support (කහ ඉර). 3. Key Target Support (නිල් ඉර). 4. වම් පස Clean Traffic කලාපය පෙන්වා Screenshot එකක් එවන්න.", "note_example": "අද ඔබ සාර්ථකව TradingView මත ඇඳ පෙන්වූ පරිදිම නැවුම් දිනක මට්ටම් 3 ඇඳ ඉදිරිපත් කිරීම."}, {"id": "T38", "title": "ප්‍රායෝගික අභ්‍යාසය 03: Demo Account එකේ නීති වලට ගත් පළමු Trade 5 පරීක්ෂා කරගැනීම", "desc": "0.01 Lot එකෙන් SL සහ TP සහිතව Demo Account එකේ ගත් මුල්ම Trades 5 හි Before & After Screenshots Mahesh Sir ට පෙන්වා උපදෙස් ලබා ගැනීම.", "yt": "How to keep a trading journal screenshots", "note_concept": "ප්‍රායෝගික අභ්‍යාසය 03: Demo Account එකේ 0.01 Lot එකෙන් Stop Loss සහ Take Profit සහිතව ඔබ තනිව ගත් මුල්ම Trades 5 වාර්තා කිරීම.", "note_rules": "1. Trade එක දැමීමට පෙර Chart එකේ Screenshot එකක් ගන්න. 2. Trade එක අවසන් වූ පසු ප්‍රතිඵලයේ Screenshot එකක් ගන්න. 3. Trades 5ම අවසන් වූ පසු Mahesh Sir ට පෙන්වා සාකච්ඡා කරන්න.", "note_example": "ජයග්‍රහණ මෙන්ම පරාජයන්ද අවංකව සටහන් කරගන්න. වැරදුණු තැන් නිවැරදි කරගැනීම සාර්ථකත්වයේ රහසයි."}, {"id": "T39", "title": "ප්‍රායෝගික අභ්‍යාසය 04: Break-Even සහ Trailing SL සාර්ථකව භාවිතා කළ Trade එකක් පෙන්වීම", "desc": "Live Market එකේදී Trade එකක් දමා, එය Profit වන විට Break-Even කර TP වදින තුරු කළමනාකරණය කළ ආකාරය පෙන්වීම.", "yt": "Live trade management break even to TP", "note_concept": "ප්‍රායෝගික අභ්‍යාසය 04: Live Demo Trade එකක් තුළ Break-Even සහ Trailing SL නිවැරදිව ක්‍රියාත්මක කර පෙන්වීම.", "note_rules": "1. Trade එක Pips 60ක් Profit වන විට SL එක Entry එකට ගෙන ඒම (Break-Even). 2. මිල තවදුරටත් ඉදිරියට යද්දී Trailing SL මගින් ලාභය Lock කිරීම. 3. එහි MT5 Screenshot එකක් Mahesh Sir වෙත එවන්න.", "note_example": "අද අප 4,111 සිට 4,103 දක්වා SL එක ගෙනැවිත් ලාභය සුරක්ෂිත කළ අයුරු ප්‍රායෝගිකව සිදු කර පෙන්වීම."}, {"id": "T40", "title": "ප්‍රායෝගික අභ්‍යාසය 05: දින 10ක විනයගරුක Demo Challenge එක සම්පූර්ණ කිරීම", "desc": "දවසකට එක Trade එක බැගින් නීති කඩ නොකර දින 10ක් පුරා Demo Account එක ලාභදායීව පවත්වාගෙන ගොස් අවසන් වාර්තාව Mahesh Sir ට ඉදිරිපත් කිරීම.", "yt": "Prop firm trial challenge consistency rules", "note_concept": "ප්‍රායෝගික අභ්‍යාසය 05: දින 10ක විනයගරුක Demo Challenge එක සම්පූර්ණ කිරීම (1 Trade per Day).", "note_rules": "1. දින 10ක් පුරා දිනකට එක Trade එකක් පමණක් ගැනීම. 2. කිසිම දිනක 0.01 Lot සීමාව නොඉක්මවීම. 3. Revenge Trading නොකිරීම. 4. දින 10 අවසානයේ සම්පූර්ණ History Report එක Mahesh Sir ට ඉදිරිපත් කිරීම.", "note_example": "මෙම අභ්‍යාසය සාර්ථකව අවසන් කළ පසු ඔබ Prop Firm Funding Evaluation එකක් ජයගැනීමට 100%ක්ම සුදුසුකම් ලබයි!"}]}];
 
 const STORAGE_KEY = 'mahesh_sir_student_trading_mastery_v1';
 let state = {
@@ -928,13 +1024,14 @@ let state = {
 };
 let mainView = 'ALL'; // 'ALL' | 'PSYCH' | 'TECH'
 let currentFilter = 'ALL';
+let openDrawers = {}; // id -> boolean
 
 function loadState() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
             const parsed = JSON.parse(raw);
-            state = { ...state, ...parsed };
+            state = Object.assign({}, state, parsed);
         }
     } catch (e) {}
     document.getElementById('studentName').value = state.studentName || '';
@@ -965,6 +1062,26 @@ function setStatus(id, val) {
     }
     saveState();
     renderAll();
+}
+
+function toggleNote(id) {
+    openDrawers[id] = !openDrawers[id];
+    const drawer = document.getElementById('drawer_' + id);
+    const btn = document.getElementById('noteBtn_' + id);
+    if (!drawer) return;
+    if (openDrawers[id]) {
+        drawer.classList.add('open');
+        if (btn) {
+            btn.classList.add('active');
+            btn.querySelector('.arrow').textContent = '▲';
+        }
+    } else {
+        drawer.classList.remove('open');
+        if (btn) {
+            btn.classList.remove('active');
+            btn.querySelector('.arrow').textContent = '▼';
+        }
+    }
 }
 
 function setMainView(view) {
@@ -998,7 +1115,7 @@ function renderAll() {
         if (st === 'done') done++;
         if (st === 'help') {
             help++;
-            helpItems.push(`<li><strong>[${ch.id}] ${ch.title}</strong> (මනෝවිද්‍යා පාඩම)</li>`);
+            helpItems.push('<li><strong>[' + ch.id + '] ' + ch.title + '</strong> (මනෝවිද්‍යා පාඩම)</li>');
         }
 
         const stateClass = st === 'done' ? 'state-done' : (st === 'help' ? 'state-help' : '');
@@ -1006,7 +1123,7 @@ function renderAll() {
         const helpActive = st === 'help' ? 'active' : '';
 
         const div = document.createElement('div');
-        div.className = `psych-chapter ${stateClass}`;
+        div.className = 'psych-chapter ' + stateClass;
         div.innerHTML = `
             <div class="chapter-top">
                 <div>
@@ -1045,7 +1162,7 @@ function renderAll() {
             if (st === 'done') { done++; stageDone++; }
             if (st === 'help') {
                 help++;
-                helpItems.push(`<li><strong>[${it.id}] ${it.title}:</strong> ${it.desc}</li>`);
+                helpItems.push('<li><strong>[' + it.id + '] ' + it.title + ':</strong> ' + it.desc + '</li>');
             }
         });
 
@@ -1060,24 +1177,62 @@ function renderAll() {
             const rowClass = st === 'done' ? 'state-done' : (st === 'help' ? 'state-help' : '');
             const doneActive = st === 'done' ? 'active' : '';
             const helpActive = st === 'help' ? 'active' : '';
+            const isDrawerOpen = openDrawers[it.id] ? 'open' : '';
+            const isBtnActive = openDrawers[it.id] ? 'active' : '';
+            const arrowText = openDrawers[it.id] ? '▲' : '▼';
+            const ytQueryUrl = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(it.yt);
 
             rowsHtml += `
                 <div class="item-row ${rowClass}">
-                    <div class="item-left">
-                        <div class="step-num">${it.id}</div>
-                        <div class="item-content">
-                            <h4>
-                                ${it.title}
-                                <span class="status-badge badge-done">✓ ඉගෙන ගත්තා</span>
-                                <span class="status-badge badge-help">❓ පැහැදිලි මදි</span>
-                            </h4>
-                            <p>${it.desc}</p>
-                            <span class="yt-tag">▶ YouTube Search: "${it.yt}"</span>
+                    <div class="item-top">
+                        <div class="item-left">
+                            <div class="step-num">${it.id}</div>
+                            <div class="item-content">
+                                <h4>
+                                    ${it.title}
+                                    <span class="status-badge badge-done">✓ ඉගෙන ගත්තා</span>
+                                    <span class="status-badge badge-help">❓ පැහැදිලි මදි</span>
+                                </h4>
+                                <p>${it.desc}</p>
+                                <div class="item-badges">
+                                    <button class="btn-toggle-note ${isBtnActive}" id="noteBtn_${it.id}" onclick="toggleNote('${it.id}')">
+                                        📖 කෙටි පාඩම කියවන්න (Study Note) <span class="arrow">${arrowText}</span>
+                                    </button>
+                                    <a href="${ytQueryUrl}" target="_blank" class="yt-link-pill">
+                                        ▶ YouTube Search: "${it.yt}"
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-actions">
+                            <button class="chk-btn btn-done ${doneActive}" onclick="setStatus('${it.id}', 'done')">✅ ඉගෙන ගත්තා</button>
+                            <button class="chk-btn btn-help ${helpActive}" onclick="setStatus('${it.id}', 'help')">❓ පැහැදිලි මදි</button>
                         </div>
                     </div>
-                    <div class="item-actions">
-                        <button class="chk-btn btn-done ${doneActive}" onclick="setStatus('${it.id}', 'done')">✅ ඉගෙන ගත්තා</button>
-                        <button class="chk-btn btn-help ${helpActive}" onclick="setStatus('${it.id}', 'help')">❓ පැහැදිලි මදි</button>
+                    <!-- Expandable Note Drawer -->
+                    <div class="item-drawer ${isDrawerOpen}" id="drawer_${it.id}">
+                        <div class="drawer-content">
+                            <div class="note-grid">
+                                <div class="note-box note-concept">
+                                    <h5>🧠 සරල තේරුම (Concept):</h5>
+                                    <p>${it.note_concept}</p>
+                                </div>
+                                <div class="note-box note-rules">
+                                    <h5>📌 ප්‍රධාන රීති සහ සූත්‍ර (Key Rules / Formula):</h5>
+                                    <p>${it.note_rules}</p>
+                                </div>
+                            </div>
+                            <div class="note-box note-example">
+                                <h5>💡 සැබෑ Chart එකේ බලන හැටි (Practical Chart Example):</h5>
+                                <p>${it.note_example}</p>
+                            </div>
+                            <div class="drawer-footer">
+                                <a href="${ytQueryUrl}" target="_blank" class="btn-yt-full">
+                                    ▶ YouTube වෙතින් වීඩියෝ බලන්න
+                                </a>
+                                <button class="btn-close-drawer" onclick="toggleNote('${it.id}')">▲ පියවන්න (Close Note)</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1126,7 +1281,7 @@ function exportPDF() {
     const sName = (state.studentName || 'Student').replace(/\s+/g, '_');
     const sReg = (state.studentReg || '').replace(/\s+/g, '_');
     const origTitle = document.title;
-    document.title = sReg ? `Trading_Mastery_Progress_${sName}_${sReg}` : `Trading_Mastery_Progress_${sName}`;
+    document.title = sReg ? 'Trading_Mastery_Progress_' + sName + '_' + sReg : 'Trading_Mastery_Progress_' + sName;
     window.print();
     setTimeout(() => { document.title = origTitle; }, 1000);
 }
@@ -1140,7 +1295,7 @@ function copyWhatsAppSummary() {
         if (st === 'done') done++;
         if (st === 'help') {
             help++;
-            helpLines.push(`❓ ${ch.id}: ${ch.title}`);
+            helpLines.push('❓ ' + ch.id + ': ' + ch.title);
         }
     });
 
@@ -1149,17 +1304,19 @@ function copyWhatsAppSummary() {
         if (st === 'done') done++;
         if (st === 'help') {
             help++;
-            helpLines.push(`❓ ${it.id}: ${it.title}`);
+            helpLines.push('❓ ' + it.id + ': ' + it.title);
         }
     }));
 
-    const sName = state.studentName || 'Student'; const sReg = state.studentReg ? ` (${state.studentReg})` : ''; let text = `📊 *Trading Mastery Progress - ${sName}${sReg}*\n`;
-    text += `✅ සම්පූර්ණ කළ පාඩම්: ${done} / 48\n`;
-    text += `❓ පැහැදිලි කරගත යුතු කොටස්: ${help}\n\n`;
+    const sName = state.studentName || 'Student';
+    const sReg = state.studentReg ? ' (' + state.studentReg + ')' : '';
+    let text = '📊 *Trading Mastery Progress - ' + sName + sReg + '*\n';
+    text += '✅ සම්පූර්ණ කළ පාඩම්: ' + done + ' / 48\n';
+    text += '❓ පැහැදිලි කරගත යුතු කොටස්: ' + help + '\n\n';
     if (helpLines.length > 0) {
-        text += `*Mahesh Sir ගෙන් අසා දැනගත යුතු කොටස්:*\n` + helpLines.join('\n');
+        text += '*Mahesh Sir ගෙන් අසා දැනගත යුතු කොටස්:*\n' + helpLines.join('\n');
     } else {
-        text += `දැනට ලකුණු කළ සියලුම මනෝවිද්‍යා සහ ප්‍රායෝගික කොටස් පැහැදිලිව තේරුම් ගත්තා Sir! 💪`;
+        text += 'දැනට ලකුණු කළ සියලුම මනෝවිද්‍යා සහ ප්‍රායෝගික කොටස් පැහැදිලිව තේරුම් ගත්තා Sir! 💪';
     }
 
     navigator.clipboard.writeText(text).then(() => {
@@ -1177,6 +1334,7 @@ function resetAll() {
 
 loadState();
 renderAll();
+
 </script>
 </body>
 </html>
